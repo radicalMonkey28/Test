@@ -25,7 +25,7 @@
       <nav>
         <div class="logo">
           <div class="mark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M3 17L9 11L13 15L21 6" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          Dashminds<span class="iq">IQ</span>
+          DashmindsIQ<span class="iq">Marketing</span>
         </div>
         <div class="nav-links">
           <a href="index.html#top">Home</a>
