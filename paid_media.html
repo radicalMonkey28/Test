@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paid Media & PPC Management That Drives ROI | DashMindsIQ</title>
+<meta name="description" content="Paid campaigns engineered for return, not just clicks. Google, Meta, LinkedIn and more — managed to turn ad spend into measurable revenue.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="navbar.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0F0B08;
+    --bg-2:#1A130D;
+    --bg-3:#251A10;
+    --text:#FBF4EC;
+    --text-dim:#B0A192;
+    --orange:#F97316;
+    --orange-bright:#FB923C;
+    --orange-pale:#FDBA74;
+    --orange-deep:#9A3412;
+    --yellow:#FACC15;
+    --line:rgba(255,255,255,.12);
+    --line-soft:rgba(255,255,255,.07);
+    --glass-bg:rgba(255,255,255,.06);
+    --glass-border:rgba(255,255,255,.14);
+    --header-bg:rgba(15,11,8,.75);
+    --grid-line:rgba(255,255,255,.05);
+    --hero-mid:#241708;
+    --noise-opacity:.4;
+    --shadow-1:rgba(0,0,0,.35);
+    --dropdown-bg:rgba(20,14,9,.99);
+  }
+  :root[data-theme="light"]{
+    --bg:#FFFFFF;
+    --bg-2:#FDF8F2;
+    --bg-3:#FBEFDD;
+    --text:#231A10;
+    --text-dim:#786757;
+    --orange:#EA580C;
+    --orange-bright:#EA580C;
+    --orange-pale:#C2410C;
+    --orange-deep:#9A3412;
+    --yellow:#CA8A04;
+    --line:rgba(35,26,16,.12);
+    --line-soft:rgba(35,26,16,.07);
+    --glass-bg:rgba(234,88,12,.05);
+    --glass-border:rgba(234,88,12,.16);
+    --header-bg:rgba(255,255,255,.78);
+    --grid-line:rgba(35,26,16,.05);
+    --hero-mid:#FCEBD5;
+    --noise-opacity:.12;
+    --shadow-1:rgba(154,52,18,.14);
+    --dropdown-bg:rgba(253,249,244,.99);
+  }
+  [data-theme]{ transition:background-color .3s ease, color .3s ease; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  a{text-decoration:none; color:inherit;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; letter-spacing:-0.01em; font-weight:600;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-bright); font-weight:500; display:flex; align-items:center; gap:8px;}
+  .eyebrow::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--yellow);}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:100px; font-weight:600; font-size:14px; cursor:pointer; border:none; transition:transform .18s ease, box-shadow .18s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--orange); color:#FFFFFF; box-shadow:0 6px 20px rgba(249,115,22,.35);}
+  .btn-primary:hover{background:var(--orange-bright); box-shadow:0 10px 28px rgba(249,115,22,.5);}
+  .btn-ghost{background:var(--orange); border:1px solid var(--orange); color:#FFFFFF;}
+  .btn-ghost:hover{border-color:var(--orange-bright); background:var(--orange-bright);}
+  .wrap{max-width:1080px; margin:0 auto; padding-left:32px; padding-right:32px;}
+  section{padding-top:50px; padding-bottom:50px;}
+  .section-divider{border-top:1px solid var(--line-soft);}
+
+  /* ===== TOP NAV ===== */
+  header{position:sticky; top:0; z-index:50; background:var(--header-bg); backdrop-filter:blur(14px); border-bottom:1px solid var(--line-soft);}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:18px 32px; max-width:1080px; margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:9px; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px;}
+  .logo .mark{width:30px; height:30px; border-radius:9px; background:linear-gradient(135deg,var(--orange),var(--orange-deep)); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .logo span.iq{color:var(--orange-bright);}
+  .nav-links{display:flex; gap:34px; font-size:14.5px; font-weight:500; color:var(--text-dim);}
+  .nav-links a{position:relative; padding-bottom:2px;}
+  .nav-links a::after{content:''; position:absolute; left:0; bottom:-2px; width:0; height:1.5px; background:var(--orange-bright); transition:width .2s ease;}
+  .nav-links a:hover{color:var(--text);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-links a.active{color:var(--text);}
+  .nav-links a.active::after{width:100%;}
+
+  .nav-item{position:relative;}
+  .nav-dropdown{
+    position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(-6px);
+    width:680px; padding-top:18px;
+    opacity:0; visibility:hidden; pointer-events:none;
+    transition:opacity .18s ease, transform .18s ease, visibility .18s ease; z-index:60;
+  }
+  .nav-item:hover .nav-dropdown{opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);}
+  .nav-dropdown-inner{
+    position:relative;
+    background:var(--dropdown-bg); border:1px solid var(--glass-border); border-radius:16px;
+    padding:24px; backdrop-filter:blur(32px) saturate(160%); -webkit-backdrop-filter:blur(32px) saturate(160%);
+    box-shadow:0 14px 34px var(--shadow-1);
+    display:grid; grid-template-columns:1fr 2px 3fr; gap:22px;
+  }
+  .nav-dropdown-inner::before{content:''; position:absolute; top:-6px; left:50%; transform:translateX(-50%) rotate(45deg); width:11px; height:11px; background:var(--dropdown-bg); border-left:1px solid var(--glass-border); border-top:1px solid var(--glass-border);}
+  .dd-divider{background:var(--line-soft); width:1px; justify-self:center;}
+  .dd-group-title{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.09em; text-transform:uppercase; color:var(--text-dim); margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--line-soft);}
+  .dd-subcols{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .nav-dropdown .dd-title{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13px; color:var(--text); margin-bottom:12px; white-space:nowrap;}
+  .nav-dropdown .dd-list{display:flex; flex-direction:column; gap:2px;}
+  .nav-dropdown .dd-list a{display:block; font-size:12.5px; font-weight:500; color:var(--text-dim); padding:7px 8px; border-radius:8px; transition:background .15s ease, color .15s ease; white-space:normal; line-height:1.35;}
+  .nav-dropdown .dd-list a:hover{background:var(--bg-3); color:var(--orange-bright);}
+  .nav-dropdown .dd-list a::after{display:none;}
+  .nav-dropdown .dd-list a.active{color:var(--orange-bright); background:var(--bg-3);}
+  @media(max-width:1100px){ .nav-dropdown{width:520px;} .nav-dropdown-inner{grid-template-columns:1fr;} .dd-divider{display:none;} .dd-subcols{grid-template-columns:repeat(3,1fr);} }
+
+  .theme-toggle{background:none; border:none; cursor:pointer; padding:2px; line-height:0;}
+  .ttrack{position:relative; width:50px; height:27px; background:var(--bg-3); border:1px solid var(--line); border-radius:100px; display:flex; align-items:center; justify-content:space-between; padding:0 6px; transition:background .3s ease;}
+  .ticon{font-size:11px; z-index:1; opacity:.7;}
+  .tthumb{position:absolute; top:2px; left:2px; width:21px; height:21px; border-radius:50%; background:linear-gradient(135deg,var(--orange),var(--orange-deep)); transition:transform .28s cubic-bezier(.4,0,.2,1); box-shadow:0 2px 8px rgba(0,0,0,.3);}
+  [data-theme="light"] .tthumb{transform:translateX(23px);}
+
+  /* ===== PAGE HERO ===== */
+  .phero-bg{position:relative; min-height:420px; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:80px 24px 60px;}
+  .phero-bg::before{
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 18% 22%, rgba(249,115,22,.5), transparent 42%),
+      radial-gradient(circle at 82% 78%, rgba(154,52,18,.55), transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(250,204,21,.28), transparent 35%),
+      linear-gradient(160deg, var(--bg) 0%, var(--hero-mid) 50%, var(--bg) 100%);
+    filter:blur(2px);
+  }
+  .phero-bg .grid-overlay{
+    position:absolute; inset:0;
+    background-image:linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size:44px 44px;
+    mask-image:radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+  .phero-bg .noise{position:absolute; inset:0; opacity:var(--noise-opacity); mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  }
+  .phero-inner{position:relative; z-index:2; max-width:680px; text-align:center; margin:0 auto;}
+  .phero-inner .eyebrow{justify-content:center;}
+  .phero-inner h1{font-size:46px; line-height:1.1; margin:18px 0 18px;}
+  .outline-text{color:transparent; -webkit-text-stroke:2px var(--orange-pale);}
+  @supports not (-webkit-text-stroke: 1px black){ .outline-text{color:var(--orange-pale);} }
+  .phero-inner p.lead{font-size:15.5px; color:var(--text-dim); line-height:1.65; margin-bottom:30px;}
+  .phero-actions{display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap;}
+
+  /* ===== SECTION HEAD ===== */
+  .section-head{max-width:600px; margin-bottom:44px;}
+  .section-head h2{font-size:32px; margin-top:12px;}
+  .section-head p{color:var(--text-dim); margin-top:10px; font-size:14.5px; line-height:1.6;}
+  .section-head.centered{margin-left:auto; margin-right:auto; text-align:center; max-width:620px;}
+  .section-head.centered .eyebrow{justify-content:center;}
+
+  /* ===== PROBLEM (single narrative block) ===== */
+  .problem-block{max-width:820px;}
+  .problem-block h2{font-size:30px; margin-bottom:18px;}
+  .problem-block p{font-size:15px; color:var(--text-dim); line-height:1.75;}
+
+  /* ===== WHAT WE DO — capability cards ===== */
+  .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .svc-card{border:1px solid var(--line); border-radius:16px; padding:22px; background:var(--bg-2); transition:transform .2s, border-color .2s; display:flex; flex-direction:column; gap:10px;}
+  .svc-card:hover{transform:translateY(-3px); border-color:var(--orange-bright);}
+  .svc-icon{width:34px; height:34px; border-radius:10px; background:rgba(249,115,22,.14); border:1px solid rgba(249,115,22,.3); display:flex; align-items:center; justify-content:center; font-size:15px; color:var(--orange-bright);}
+  .svc-card h4{font-size:15px; font-weight:600;}
+  .svc-card p{font-size:13px; color:var(--text-dim); line-height:1.55; flex:1;}
+  @media(max-width:900px){ .svc-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:520px){ .svc-grid{grid-template-columns:1fr;} }
+
+  /* ===== PROCESS — card row ===== */
+.approach-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  align-items:stretch;
+}
+
+.approach-card{
+  position:relative;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:var(--bg-2);
+  padding:26px 22px;
+  transition:transform .2s ease,border-color .2s ease;
+}
+
+.approach-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--orange-bright);
+}
+
+.approach-card .step-num{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;
+  font-size:34px;
+  line-height:1;
+  color:var(--orange-bright);
+  margin-bottom:14px;
+}
+
+.approach-card h3{
+  font-size:15.5px;
+  margin-bottom:8px;
+}
+
+.approach-card p{
+  font-size:13px;
+  color:var(--text-dim);
+  line-height:1.55;
+}
+
+
+@media(max-width:900px){
+  .approach-grid{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .approach-card::after{
+    content:none;
+  }
+}
+
+.audit-note{
+  margin-top:26px;
+  text-align:center;
+  font-size:13px;
+  color:var(--text-dim);
+  font-style:italic;
+}
+
+.audit-note a{
+  color:var(--orange-bright);
+  font-weight:600;
+  font-style:normal;
+}
+
+  /* ===== CASE STUDY — stats + narrative ===== */
+  .case-feature{border:1px solid var(--line); border-radius:20px; background:var(--bg-2); padding:34px; }
+  .stat-row{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:26px;}
+  .stat-card{border:1px solid var(--line); border-radius:14px; padding:18px; background:var(--bg-3); text-align:center;}
+  .stat-card .num{font-family:'Space Grotesk',sans-serif; font-size:26px; font-weight:700; color:var(--orange-bright);}
+  .stat-card .label{font-size:12px; color:var(--text-dim); margin-top:4px; line-height:1.4;}
+  .case-feature h3{font-size:19px; margin-bottom:14px;}
+  .case-feature p.mini{font-size:14px; color:var(--text-dim); line-height:1.7; margin-bottom:18px;}
+  .case-link{display:inline-block; font-size:12.5px; font-weight:600; color:var(--orange-bright);}
+  @media(max-width:700px){ .stat-row{grid-template-columns:1fr;} }
+
+  /* ===== INSIGHTS strip ===== */
+  .insights-strip{border:1px dashed var(--line); border-radius:16px; padding:26px; text-align:center; color:var(--text-dim); font-size:13.5px;}
+  .insights-strip a{color:var(--orange-bright); font-weight:600;}
+
+  /* ===== WHY US — 3 points ===== */
+  .why-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .why-card{border:1px solid var(--line); border-radius:18px; padding:26px; background:var(--bg-2); transition:transform .2s, border-color .2s;}
+  .why-card:hover{transform:translateY(-3px); border-color:var(--orange-bright);}
+  .why-card .n{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--orange-bright); margin-bottom:10px;}
+  .why-card h3{font-size:16.5px; margin-bottom:10px;}
+  .why-card p{font-size:13.5px; color:var(--text-dim); line-height:1.6;}
+  @media(max-width:900px){ .why-grid{grid-template-columns:1fr;} }
+
+  /* ===== FAQ (accordion) ===== */
+  .faq-list{max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:10px;}
+  .faq-item{border:1px solid var(--line); border-radius:14px; background:var(--bg-2); overflow:hidden;}
+  .faq-q{width:100%; text-align:left; background:none; border:none; padding:19px 22px; display:flex; align-items:center; justify-content:space-between; gap:16px; cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600; color:var(--text);}
+  .faq-q .plus{flex-shrink:0; width:22px; height:22px; border-radius:50%; border:1.5px solid var(--orange-bright); color:var(--orange-bright); display:flex; align-items:center; justify-content:center; font-size:14px; transition:transform .25s ease;}
+  .faq-item.open .faq-q .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .3s ease;}
+  .faq-a p{padding:0 22px 20px; font-size:13.5px; color:var(--text-dim); line-height:1.65; max-width:640px;}
+  .faq-item.open .faq-a{max-height:260px;}
+
+  /* ===== CTA banner ===== */
+  .cta-banner{background:linear-gradient(135deg, var(--orange-deep), var(--orange)); border-radius:24px; padding:44px 40px; position:relative; overflow:hidden; box-shadow:0 20px 50px rgba(154,52,18,.35); text-align:center;}
+  .cta-banner::after{content:''; position:absolute; top:-40%; right:-8%; width:220px; height:220px; background:rgba(255,255,255,.14); transform:rotate(20deg); border-radius:30%;}
+  .cta-banner h3{font-size:26px; margin:6px 0 4px; position:relative; color:#fff;}
+  .cta-banner p{font-size:14px; color:rgba(255,255,255,.85); position:relative; margin:0 auto 20px; max-width:440px;}
+  .cta-banner .eyebrow{color:#fff; justify-content:center;}
+  .cta-banner .eyebrow::before{background:var(--yellow);}
+
+  footer{border-top:1px solid var(--line-soft); padding:36px 0; display:flex; justify-content:space-between; font-size:12.5px; color:var(--text-dim); flex-wrap:wrap; gap:10px;}
+
+  /* ===== FLOATING AUDIT BUTTON ===== */
+  .float-audit{
+    position:fixed; bottom:26px; right:26px;
+    display:inline-flex; align-items:center; gap:9px;
+    padding:15px 26px; border-radius:100px; z-index:80;
+    background:linear-gradient(135deg,var(--orange),var(--yellow)); color:#1A1105;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px;
+    box-shadow:0 10px 30px rgba(249,115,22,.45), inset 0 1px 0 rgba(255,255,255,.25);
+    border:1px solid rgba(255,255,255,.15);
+    transition:transform .2s ease, box-shadow .2s ease;
+    animation:audit-pop .5s cubic-bezier(.34,1.56,.64,1) .3s both;
+  }
+  .float-audit:hover{transform:translateY(-3px); box-shadow:0 16px 38px rgba(249,115,22,.55);}
+  .float-audit .dot-live{width:7px; height:7px; border-radius:50%; background:#1A1105; animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+  @keyframes audit-pop{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+  @media(max-width:640px){
+    .float-audit{bottom:18px; right:18px; padding:13px 20px; font-size:13.5px;}
+  }
+
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .phero-inner h1{font-size:32px;}
+    section{padding-top:64px; padding-bottom:64px;}
+  }
+</style>
+</head>
+<body>
+
+<a href="#final-cta" class="float-audit">
+  <span class="dot-live"></span>
+  Get your free audit
+</a>
+
+<div id="navbar-placeholder"></div>
+
+<main id="top">
+
+  <!-- 1 · HERO -->
+  <div class="phero-bg">
+    <div class="grid-overlay"></div>
+    <div class="noise"></div>
+    <div class="phero-inner">
+      <div class="eyebrow">Paid Media</div>
+      <h1>Paid media that turns ad spend into <span class="outline-text">predictable revenue</span>.</h1>
+      <p class="lead">We plan, launch, and optimise paid campaigns across search and social that reach the right people at the right moment — and we measure every dirham by what it returns, not what it costs.</p>
+      <div class="phero-actions">
+        <a href="#final-cta" class="btn btn-primary">See your paid media opportunities →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 · THE PROBLEM -->
+  <section id="problem" class="wrap section-divider">
+    <div class="problem-block">
+      <div class="eyebrow">The Problem</div>
+      <h2>Spending more on ads shouldn't mean guessing where it goes.</h2>
+      <p>Too many businesses pour budget into campaigns that look busy but don't pay back — broad targeting that burns money, creative that doesn't convert, and reporting that shows clicks instead of customers. Meanwhile the platforms keep getting more complex and more expensive. Without a tight link between spend, targeting, and revenue, paid media becomes a cost centre instead of a growth engine.</p>
+    </div>
+  </section>
+
+  <!-- 3 · WHAT WE DO -->
+  <section id="what-we-do" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">What We Do</div>
+      <h2>Full-funnel paid campaigns, managed for return.</h2>
+      <p>We run the channels that fit your audience and goals — and cut the ones that don't.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon">◎</div>
+        <h4>Paid search (PPC)</h4>
+        <p>Google and Bing campaigns that capture high-intent demand, structured for quality score, lower cost-per-click, and conversions that matter.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">✎</div>
+        <h4>Paid social</h4>
+        <p>Meta, Instagram, LinkedIn, and TikTok campaigns matched to each platform's strengths and your audience's behaviour.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">◆</div>
+        <h4>Retargeting &amp; funnels</h4>
+        <p>We re-engage the visitors who didn't convert the first time, with sequenced campaigns that move them toward purchase.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">✉</div>
+        <h4>Creative &amp; copy testing</h4>
+        <p>We continuously test ad creative, headlines, and offers to find what performs — then scale the winners.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">⟲</div>
+        <h4>Budget &amp; bid optimisation</h4>
+        <p>We manage spend actively, shifting budget to what's working so every dirham earns its place.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · OUR APPROACH -->
+  <section id="approach" class="wrap section-divider">
+
+  <div class="section-head">
+    <div class="eyebrow">Our Approach</div>
+    <h2>From wasted spend to profitable scale.</h2>
+    <p>Successful paid media isn't about spending more—it's about investing smarter. Here's how we maximise every advertising pound.</p>
+  </div>
+
+  <div class="approach-grid">
+
+    <div class="approach-card">
+      <div class="step-num mono">01</div>
+      <h3>Audit</h3>
+      <p>We analyse your existing campaigns, targeting, creatives, conversion tracking, and competitors to uncover wasted spend and hidden opportunities.</p>
+    </div>
+
+    <div class="approach-card">
+      <div class="step-num mono">02</div>
+      <h3>Strategy</h3>
+      <p>We build a channel, audience, and budget strategy focused on achieving your target cost per acquisition and return on ad spend.</p>
+    </div>
+
+    <div class="approach-card">
+      <div class="step-num mono">03</div>
+      <h3>Launch &amp; Optimise</h3>
+      <p>We launch campaigns with robust tracking, continuously testing audiences, creatives, bids, and landing pages to improve performance.</p>
+    </div>
+
+    <div class="approach-card">
+      <div class="step-num mono">04</div>
+      <h3>Scale</h3>
+      <p>Using real performance data, we shift budget toward the highest-performing campaigns and continually refine your account for greater profitability.</p>
+    </div>
+
+  </div>
+
+  <p class="audit-note">
+    Want to see where your paid campaigns stand today?
+    <a href="#final-cta">Start with a free audit →</a>
+  </p>
+
+</section>
+
+  <!-- 5 · FEATURED CASE STUDY -->
+  <section id="case-study" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">Featured Case Study</div>
+      <h2>Return you can measure.</h2>
+    </div>
+    <div class="case-feature">
+      <div class="stat-row">
+        <div class="stat-card"><div class="num">4.1x</div><div class="label">return on ad spend — [client / sector]</div></div>
+        <div class="stat-card"><div class="num">-38%</div><div class="label">cost per lead in [90 days]</div></div>
+        <div class="stat-card"><div class="num">[+X%]</div><div class="label">conversion rate after creative testing — [client]</div></div>
+      </div>
+      <h3>How restructured targeting turned spend into scalable return.</h3>
+      <p class="mini">When [Client] was spending AED X a month with little to show, we restructured their account, tightened targeting, and rebuilt their creative. Within [three months], cost-per-lead had dropped 38% and return on ad spend had climbed to 4.1x.</p>
+      <a href="#" class="case-link">Read the full case study →</a>
+    </div>
+  </section>
+
+  <!-- 6 · INSIGHTS -->
+  <section id="insights" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">Insights</div>
+      <h2>Paid Media case studies and blogs</h2>
+    </div>
+    <div class="insights-strip">
+      Fresh articles on paid search, paid social, and what's working right now are coming soon. <a href="index.html#insights">Browse our latest insights →</a>
+    </div>
+  </section>
+
+  <!-- 7 · WHY DASHMINDSIQ -->
+  <section id="why-dashmindsiq" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">Why DashMindsIQ</div>
+      <h2>Paid media accountable to the only metric that matters — return.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="n">01</div>
+        <h3>Every dirham tracked</h3>
+        <p>Proper conversion tracking means we optimise to revenue, not vanity clicks.</p>
+      </div>
+      <div class="why-card">
+        <div class="n">02</div>
+        <h3>Creative that converts</h3>
+        <p>We pair sharp targeting with tested creative, because great targeting on weak ads still fails.</p>
+      </div>
+      <div class="why-card">
+        <div class="n">03</div>
+        <h3>Active management, not set-and-forget</h3>
+        <p>Budgets and bids are managed continuously, so spend follows performance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · CTA BAND -->
+  <section id="final-cta" class="wrap">
+    <div class="cta-banner">
+      <div class="eyebrow">Find out what your ad budget could really be earning you</div>
+      <h3>Get a free audit of your paid campaigns.</h3>
+      <p>We'll show you where spend is leaking and where the fastest returns are — no obligation.</p>
+      <a href="mailto:hello@dashmindsiq.com" class="btn btn-ghost" style="background:#fff; color:var(--orange-deep);">Get your free audit →</a>
+    </div>
+  </section>
+
+  <!-- 9 · FAQ -->
+  <section id="faq" class="wrap section-divider">
+    <div class="section-head centered">
+      <div class="eyebrow">FAQ</div>
+      <h2>Questions, answered.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q"><span>How much should I budget for paid ads?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>It depends on your goals, market, and margins — there's no universal number. In your audit we'll recommend a realistic starting budget based on your target cost-per-acquisition and the competition in your space, then scale as return proves out.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>How quickly will I see results?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Paid media is the fastest channel — you can see traffic and leads within days of launch. The first few weeks are for gathering data and optimising; profitable scale usually follows within the first one to three months.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Which platform is right for my business?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>That's what we determine in the audit. High-intent search demand suits Google; visual and discovery-led products suit Meta and TikTok; B2B often performs on LinkedIn. We recommend based on where your customers actually are, not where it's trendy.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Do you handle creative, or just the ad management?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Both. We test and produce ad creative and copy as part of the service, because targeting and creative have to work together to perform.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>© 2026 DashmindsIQ Digital Marketing. All rights reserved.</span>
+    <span>Privacy Policy · Terms &amp; Conditions</span>
+  </footer>
+
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much should I budget for paid ads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on your goals, market, and margins — there's no universal number. In your audit we'll recommend a realistic starting budget based on your target cost-per-acquisition and the competition in your space, then scale as return proves out."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly will I see results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paid media is the fastest channel — you can see traffic and leads within days of launch. The first few weeks are for gathering data and optimising; profitable scale usually follows within the first one to three months."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which platform is right for my business?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That's what we determine in the audit. High-intent search demand suits Google; visual and discovery-led products suit Meta and TikTok; B2B often performs on LinkedIn. We recommend based on where your customers actually are, not where it's trendy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you handle creative, or just the ad management?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both. We test and produce ad creative and copy as part of the service, because targeting and creative have to work together to perform."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+  /* Theme toggle: dark <-> light (shared with home/services) */
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('theme-toggle');
+  themeBtn.addEventListener('click', () => {
+    const isLight = root.getAttribute('data-theme') === 'light';
+    root.setAttribute('data-theme', isLight ? 'dark' : 'light');
+    themeBtn.setAttribute('aria-pressed', String(!isLight));
+  });
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+<script src="navbar.js" defer></script>
+</body>
+</html>

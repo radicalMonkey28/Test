@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | DashMindsIQ Marketing</title>
+<meta name="description" content="A small, focused team of marketers, strategists, and analysts who take ownership of results, not just deliverables. Learn who we are and what we stand for.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="navbar.css">
+<style>
+  :root{
+    --bg:#0F0B08;
+    --bg-2:#1A130D;
+    --bg-3:#251A10;
+    --text:#FBF4EC;
+    --text-dim:#B0A192;
+    --orange:#F97316;
+    --orange-bright:#FB923C;
+    --orange-pale:#FDBA74;
+    --orange-deep:#9A3412;
+    --yellow:#FACC15;
+    --line:rgba(255,255,255,.12);
+    --line-soft:rgba(255,255,255,.07);
+    --glass-bg:rgba(255,255,255,.06);
+    --glass-border:rgba(255,255,255,.14);
+    --header-bg:rgba(15,11,8,.75);
+    --grid-line:rgba(255,255,255,.05);
+    --hero-mid:#241708;
+    --noise-opacity:.4;
+    --shadow-1:rgba(0,0,0,.35);
+    --dropdown-bg:rgba(20,14,9,.99);
+  }
+  :root[data-theme="light"]{
+    --bg:#FFFFFF;
+    --bg-2:#FDF8F2;
+    --bg-3:#FBEFDD;
+    --text:#231A10;
+    --text-dim:#786757;
+    --orange:#EA580C;
+    --orange-bright:#EA580C;
+    --orange-pale:#C2410C;
+    --orange-deep:#9A3412;
+    --yellow:#CA8A04;
+    --line:rgba(35,26,16,.12);
+    --line-soft:rgba(35,26,16,.07);
+    --glass-bg:rgba(234,88,12,.05);
+    --glass-border:rgba(234,88,12,.16);
+    --header-bg:rgba(255,255,255,.78);
+    --grid-line:rgba(35,26,16,.05);
+    --hero-mid:#FCEBD5;
+    --noise-opacity:.12;
+    --shadow-1:rgba(154,52,18,.14);
+    --dropdown-bg:rgba(253,249,244,.99);
+  }
+  [data-theme]{ transition:background-color .3s ease, color .3s ease; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  a{text-decoration:none; color:inherit;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; letter-spacing:-0.01em; font-weight:600;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-bright); font-weight:500; display:flex; align-items:center; gap:8px;}
+  .eyebrow::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--yellow);}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:100px; font-weight:600; font-size:14px; cursor:pointer; border:none; transition:transform .18s ease, box-shadow .18s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--orange); color:#FFFFFF; box-shadow:0 6px 20px rgba(249,115,22,.35);}
+  .btn-primary:hover{background:var(--orange-bright); box-shadow:0 10px 28px rgba(249,115,22,.5);}
+  .btn-ghost{background:var(--orange); border:1px solid var(--orange); color:#FFFFFF;}
+  .btn-ghost:hover{border-color:var(--orange-bright); background:var(--orange-bright);}
+  .wrap{max-width:1080px; margin:0 auto; padding:40px 32px;}
+  section{padding-top:50px; padding-bottom:50px;}
+  .section-divider{border-top:1px solid var(--line-soft);}
+
+  /* ===== HERO ===== */
+  .hero-bg{position:relative; min-height:520px; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:60px 24px;}
+  .hero-bg::before{
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 18% 22%, rgba(249,115,22,.5), transparent 42%),
+      radial-gradient(circle at 82% 78%, rgba(154,52,18,.55), transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(250,204,21,.26), transparent 35%),
+      linear-gradient(160deg, var(--bg) 0%, var(--hero-mid) 50%, var(--bg) 100%);
+    filter:blur(2px);
+  }
+  .hero-bg .grid-overlay{
+    position:absolute; inset:0;
+    background-image:linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size:44px 44px;
+    mask-image:radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+  .hero-bg .noise{position:absolute; inset:0; opacity:var(--noise-opacity); mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  }
+  .glass-card{
+    position:relative; z-index:2; max-width:680px; text-align:center;
+    background:var(--glass-bg);
+    border:1px solid var(--glass-border);
+    border-radius:28px; padding:56px 46px;
+    backdrop-filter:blur(22px) saturate(150%);
+    -webkit-backdrop-filter:blur(22px) saturate(150%);
+    box-shadow:0 8px 42px rgba(249,115,22,.18), inset 0 1px 0 var(--glass-border);
+  }
+  .glass-card .eyebrow{justify-content:center;}
+  .glass-card h1{font-size:42px; line-height:1.1; margin:18px 0 18px;}
+  .glass-card p.lead{font-size:15.5px; color:var(--text-dim); line-height:1.6; margin-bottom:28px;}
+  .hero-actions{display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap;}
+
+  /* ===== SECTION HEAD ===== */
+  .section-head{max-width:640px; margin-bottom:32px;}
+  .section-head h2{font-size:28px; margin-top:10px;}
+  .section-head.centered{margin-left:auto; margin-right:auto; text-align:center;}
+  .section-head.centered .eyebrow{justify-content:center;}
+
+  /* ===== PROBLEM ===== */
+  .problem-text{font-size:15px; color:var(--text-dim); line-height:1.75; max-width:820px;}
+  .problem-text em{color:var(--orange-pale); font-style:normal; font-weight:600;}
+
+  /* ===== WHAT WE DO — simple list ===== */
+  .offer-list{display:flex; flex-direction:column; gap:0; max-width:820px;}
+  .offer-row{display:flex; gap:14px; padding:20px 0; border-bottom:1px solid var(--line-soft);}
+  .offer-row:last-child{border-bottom:none;}
+  .offer-row .dash{color:var(--orange-bright); font-weight:700; flex-shrink:0;}
+  .offer-row .body b{font-size:14.5px; display:block; margin-bottom:4px;}
+  .offer-row .body span{font-size:14px; color:var(--text-dim); line-height:1.6;}
+  .offer-row .body a{font-size:13px; font-weight:600; color:var(--orange-bright); white-space:nowrap;}
+
+  /* ===== PROCESS — card row ===== */
+  .approach-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; align-items:stretch;}
+  .approach-card{
+    position:relative; border:1px solid var(--line); border-radius:18px; background:var(--bg-2);
+    padding:26px 22px; transition:transform .2s ease, border-color .2s ease;
+  }
+  .approach-card:hover{transform:translateY(-4px); border-color:var(--orange-bright);}
+  .approach-card .step-num{
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:34px; color:var(--orange-bright);
+    opacity:.9; margin-bottom:14px; line-height:1;
+  }
+  .approach-card h3{font-size:15.5px; margin-bottom:8px;}
+  .approach-card p{font-size:13px; color:var(--text-dim); line-height:1.55;}
+  
+  .infographic-note{margin-top:26px; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--text-dim); font-style:italic;}
+  @media(max-width:900px){
+    .approach-grid{grid-template-columns:1fr; gap:14px;}
+    .approach-card::after{content:none;}
+  }
+
+  /* ===== FAIL / DIFFERENTLY COMPARISON ===== */
+  .fc-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px; max-width:900px;}
+  .fc-col h3{font-family:'Space Grotesk',sans-serif; font-size:15px; margin-bottom:16px;}
+  .fc-list{display:flex; flex-direction:column; gap:12px;}
+  .fc-item{display:flex; gap:10px; font-size:14px; color:var(--text-dim); line-height:1.55;}
+  .fc-item .mark{flex-shrink:0; font-weight:700; width:16px;}
+  .fc-item.fail .mark{color:#F87171;}
+  .fc-item.win .mark{color:var(--orange-bright);}
+  @media(max-width:700px){ .fc-grid{grid-template-columns:1fr;} }
+
+  /* ===== PRINCIPLES LIST ===== */
+  .principle-list{display:flex; flex-direction:column; gap:0; max-width:860px;}
+  .principle-row{display:flex; gap:18px; padding:22px 0; border-bottom:1px solid var(--line-soft);}
+  .principle-row:last-child{border-bottom:none;}
+  .principle-row .p-num{font-family:'IBM Plex Mono',monospace; color:var(--orange-bright); font-size:13px; flex-shrink:0; width:26px; padding-top:2px;}
+  .principle-row .body b{font-size:15px; display:block; margin-bottom:5px;}
+  .principle-row .body span{font-size:14px; color:var(--text-dim); line-height:1.65;}
+
+  /* ===== DASHMINDSIQ BLOCK ===== */
+  .parent-link{display:inline-block; margin-top:8px; font-size:13.5px; font-weight:600; color:var(--orange-bright); font-style:italic;}
+
+  /* ===== CTA STANDALONE — dual button ===== */
+  .cta-full .hero-actions{margin-top:0;}
+
+  .cta-full{
+    text-align:center; max-width:640px; margin:0 auto;
+    border:1px solid rgba(249,115,22,.35); border-radius:22px;
+    background:linear-gradient(120deg, rgba(249,115,22,.14), rgba(154,52,18,.16));
+    padding:46px 40px;
+  }
+  .cta-full h2{font-size:24px; margin-bottom:12px;}
+  .cta-full p{font-size:14.5px; color:var(--text-dim); line-height:1.6; margin-bottom:24px;}
+
+  /* ===== FAQ — native accordion ===== */
+  .faq-list{display:flex; flex-direction:column; gap:10px; max-width:820px;}
+  .faq-item{border:1px solid var(--line); border-radius:14px; background:var(--bg-2); overflow:hidden;}
+  .faq-item summary{list-style:none; cursor:pointer; padding:18px 22px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:'+'; font-family:'IBM Plex Mono',monospace; font-size:18px; color:var(--orange-bright); transition:transform .2s ease; flex-shrink:0;}
+  .faq-item[open] summary::after{transform:rotate(45deg);}
+  .faq-item .faq-a{padding:0 22px 20px; font-size:13.5px; color:var(--text-dim); line-height:1.65;}
+
+  /* ===== CLOSING ===== */
+  .closing{text-align:center; padding:30px 0 0;}
+  .closing p{font-size:15px; color:var(--text-dim);}
+  .closing a{color:var(--orange-bright); font-weight:600;}
+
+  footer{border-top:1px solid var(--line-soft); padding:36px 0; display:flex; justify-content:space-between; font-size:12.5px; color:var(--text-dim); flex-wrap:wrap; gap:10px;}
+
+  /* ===== FLOATING AUDIT BUTTON ===== */
+  .float-audit{
+    position:fixed; bottom:26px; right:26px;
+    display:inline-flex; align-items:center; gap:9px;
+    padding:15px 26px; border-radius:100px; z-index:80;
+    background:var(--orange); color:#FFFFFF;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px;
+    box-shadow:0 10px 30px rgba(249,115,22,.45), inset 0 1px 0 rgba(255,255,255,.25);
+    border:1px solid rgba(255,255,255,.15);
+    transition:transform .2s ease, box-shadow .2s ease;
+    animation:audit-pop .5s cubic-bezier(.34,1.56,.64,1) .3s both;
+  }
+  .float-audit:hover{transform:translateY(-3px); background:var(--orange-bright); box-shadow:0 16px 38px rgba(249,115,22,.55);}
+  .float-audit .dot-live{width:7px; height:7px; border-radius:50%; background:#FFFFFF; animation:pulse 1.6s infinite;}
+  @keyframes audit-pop{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+  @media(max-width:640px){
+    .float-audit{bottom:18px; right:18px; padding:13px 20px; font-size:13.5px;}
+  }
+
+  @media(max-width:900px){
+    .glass-card h1{font-size:30px;}
+    .glass-card{padding:36px 24px;}
+    section{padding:60px 0;}
+    .offer-row{flex-direction:column; gap:6px;}
+    .offer-row .body a{white-space:normal;}
+  }
+</style>
+</head>
+<body>
+
+<a href="#cta" class="float-audit">
+  <span class="dot-live"></span>
+  Get your free audit
+</a>
+
+<div id="navbar-placeholder"></div>
+
+<main id="top">
+
+  <!-- 1 · Hero -->
+  <div class="hero-bg">
+    <div class="grid-overlay"></div>
+    <div class="noise"></div>
+    <div class="glass-card">
+      <div class="eyebrow">About Us</div>
+      <h1>Built to deliver results, not reports.</h1>
+      <p class="lead">A small, focused team of marketers, strategists, and analysts who take ownership of outcomes — not activity logs.</p>
+    </div>
+  </div>
+
+  <!-- 2 · Introduction -->
+  <section id="introduction" class="wrap">
+    <p class="problem-text">DashMindsIQ Marketing started with a straightforward premise: that clients deserve a marketing partner who takes ownership of results rather than just delivering campaigns. We are a small, focused team of strategists, specialists, and analysts who would rather do a smaller number of things very well than spread thin across every tactic imaginable.<br><br>Our work spans search and content, paid media, social and community, email and automation, brand and creative, and the analytics that hold it all accountable. We serve B2B, B2C, and D2C clients across technology, finance, retail, healthcare, real estate, and beyond.</p>
+  </section>
+
+  <!-- 4 · Why Choose Us -->
+  <section id="why-choose-us" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">Why Choose Us?</div>
+      <h2>The kind of marketing partner we wished existed.</h2>
+      <p>Most marketing doesn't fail because of bad marketers.</p>
+    </div>
+    <div class="fc-grid">
+      <div class="fc-col">
+        <h3>Why marketing fails</h3>
+        <div class="fc-list">
+          <div class="fc-item fail"><span class="mark">✕</span><span>Goals that were never defined clearly enough to measure</span></div>
+          <div class="fc-item fail"><span class="mark">✕</span><span>An agency that never understood the business it was marketing</span></div>
+          <div class="fc-item fail"><span class="mark">✕</span><span>An engagement model that rewarded activity over outcomes</span></div>
+        </div>
+      </div>
+      <div class="fc-col">
+        <h3>What we do differently</h3>
+        <div class="fc-list">
+          <div class="fc-item win"><span class="mark">✓</span><span>Direct about what will work, and what won't</span></div>
+          <div class="fc-item win"><span class="mark">✓</span><span>Transparent about performance and problems as they happen</span></div>
+          <div class="fc-item win"><span class="mark">✓</span><span>Measured by the revenue our work generates, not the reports we send</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · What we stand for -->
+  <section id="what-we-stand-for" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">What We Stand For</div>
+      <h2>The principles behind every engagement.</h2>
+    </div>
+    <div class="principle-list">
+      <div class="principle-row">
+        <div class="p-num mono">01</div>
+        <div class="body">
+          <b>Outcomes, not output</b>
+          <span>We measure success by the business result our work enables — the revenue generated, the leads produced, the cost per acquisition reduced — not by the volume of posts published or hours logged.</span>
+        </div>
+      </div>
+      <div class="principle-row">
+        <div class="p-num mono">02</div>
+        <div class="body">
+          <b>Honesty by default</b>
+          <span>We give clients our honest assessment of timelines, budgets, and what's realistically achievable, even when that isn't what they want to hear. No agency can guarantee a #1 ranking. An accurate picture of reality is more valuable than a comfortable one.</span>
+        </div>
+      </div>
+      <div class="principle-row">
+        <div class="p-num mono">03</div>
+        <div class="body">
+          <b>Ownership mindset</b>
+          <span>Everyone here behaves as if they personally own the outcome of every engagement. We don't wait to be asked to flag a problem, and we don't ship work we wouldn't put our name on.</span>
+        </div>
+      </div>
+      <div class="principle-row">
+        <div class="p-num mono">04</div>
+        <div class="body">
+          <b>Depth over breadth</b>
+          <span>We work with a defined set of channels and practice areas — not because we can't learn new ones, but because genuine expertise requires investment that dabbling does not produce.</span>
+        </div>
+      </div>
+      <div class="principle-row">
+        <div class="p-num mono">05</div>
+        <div class="body">
+          <b>Evidence over opinion</b>
+          <span>Every recommendation starts with your real data — search console, analytics, ad accounts, sales figures — analysed before we act. Marketing has too many confident opinions and too little evidence.</span>
+        </div>
+      </div>
+      <div class="principle-row">
+        <div class="p-num mono">06</div>
+        <div class="body">
+          <b>Small enough to care</b>
+          <span>We're deliberately selective about the clients we take on. Every one gets the attention of senior people, not a junior team managed from a distance by someone they met once in a pitch.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · Part of DashMindsIQ -->
+  <section id="parent-company" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">Part of DashMindsIQ</div>
+      <h2>Marketing with engineering behind it.</h2>
+    </div>
+    <p class="problem-text">DashMindsIQ Marketing is the growth practice of DashMindsIQ, a global technology services firm building software, AI systems, cloud infrastructure, and data platforms.<br><br>That matters more than it sounds. When your site needs a technical SEO overhaul, structured data, a Core Web Vitals fix, or a proper analytics implementation, we don't outsource it or work around it. <em>The engineering depth is in the building.</em> It's why our marketing holds up where most agencies hit the limits of what they can actually build.</p>
+    <a href="#" class="parent-link">Visit DashMindsIQ ↗</a>
+  </section>
+
+  <!-- 8 · CTA band -->
+  <section id="cta" class="wrap section-divider">
+    <div class="cta-full">
+      <h2>Ready to discuss your marketing?</h2>
+      <p>We respond to all enquiries within one business day. Start with a free audit — we'll show you where the opportunities are before you commit to anything.</p>
+      <div class="hero-actions">
+        <a href="mailto:hello@dashmindsiq.com" class="btn btn-primary">Get your free audit →</a>
+        <a href="services.html" class="btn btn-ghost">See our services →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>© 2026 DashmindsIQ Digital Marketing. All rights reserved.</span>
+    <span>Privacy Policy · Terms &amp; Conditions</span>
+  </footer>
+
+</main>
+
+<script src="navbar.js" defer></script>
+
+</body>
+</html>

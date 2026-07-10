@@ -1,0 +1,62 @@
+/* =========================================================
+   NAVBAR.CSS
+   Shared header / nav / dropdown / theme-toggle styles.
+   Include this on every page, AFTER your page's theme
+   variables (:root / [data-theme="light"]) are defined,
+   since these rules rely on those custom properties.
+   ========================================================= */
+
+header{position:sticky; top:0; z-index:50; background:var(--header-bg); backdrop-filter:blur(14px); border-bottom:1px solid var(--line-soft);}
+nav{display:flex; align-items:center; justify-content:space-between; padding:18px 32px; max-width:1080px; margin:0 auto;}
+
+.logo{display:flex; align-items:center; gap:9px; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px;}
+.logo .mark{width:30px; height:30px; border-radius:9px; background:linear-gradient(135deg,var(--orange),var(--orange-deep)); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+.logo span.iq{color:var(--orange-bright);}
+
+.nav-links{display:flex; gap:34px; font-size:14.5px; font-weight:500; color:var(--text-dim);}
+.nav-links a{position:relative; padding-bottom:2px;}
+.nav-links a::after{content:''; position:absolute; left:0; bottom:-2px; width:0; height:1.5px; background:var(--orange-bright); transition:width .2s ease;}
+.nav-links a:hover{color:var(--text);}
+.nav-links a:hover::after{width:100%;}
+
+.nav-item{position:relative;}
+.nav-dropdown{
+  position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(-6px);
+  width:680px; padding-top:18px;
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .18s ease, transform .18s ease, visibility .18s ease; z-index:60;
+}
+.nav-item:hover .nav-dropdown{opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);}
+.nav-dropdown-inner{
+  position:relative;
+  background:var(--dropdown-bg); border:1px solid var(--glass-border); border-radius:16px;
+  padding:24px; backdrop-filter:blur(32px) saturate(160%); -webkit-backdrop-filter:blur(32px) saturate(160%);
+  box-shadow:0 14px 34px var(--shadow-1);
+  display:grid; grid-template-columns:1fr 2px 3fr; gap:22px;
+}
+.nav-dropdown-inner::before{content:''; position:absolute; top:-6px; left:50%; transform:translateX(-50%) rotate(45deg); width:11px; height:11px; background:var(--dropdown-bg); border-left:1px solid var(--glass-border); border-top:1px solid var(--glass-border);}
+.dd-divider{background:var(--line-soft); width:1px; justify-self:center;}
+.dd-group-title{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.09em; text-transform:uppercase; color:var(--text-dim); margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--line-soft);}
+.dd-subcols{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+.nav-dropdown .dd-title{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13px; color:var(--text); margin-bottom:12px; white-space:nowrap;}
+.nav-dropdown .dd-list{display:flex; flex-direction:column; gap:2px;}
+.nav-dropdown .dd-list a{display:block; font-size:12.5px; font-weight:500; color:var(--text-dim); padding:7px 8px; border-radius:8px; transition:background .15s ease, color .15s ease; white-space:normal; line-height:1.35;}
+.nav-dropdown .dd-list a:hover{background:var(--bg-3); color:var(--orange-bright);}
+.nav-dropdown .dd-list a::after{display:none;}
+
+@media(max-width:1100px){
+  .nav-dropdown{width:520px;}
+  .nav-dropdown-inner{grid-template-columns:1fr;}
+  .dd-divider{display:none;}
+  .dd-subcols{grid-template-columns:repeat(3,1fr);}
+}
+
+.theme-toggle{background:none; border:none; cursor:pointer; padding:2px; line-height:0;}
+.ttrack{position:relative; width:50px; height:27px; background:var(--bg-3); border:1px solid var(--line); border-radius:100px; display:flex; align-items:center; justify-content:space-between; padding:0 6px; transition:background .3s ease;}
+.ticon{font-size:11px; z-index:1; opacity:.7;}
+.tthumb{position:absolute; top:2px; left:2px; width:21px; height:21px; border-radius:50%; background:linear-gradient(135deg,var(--orange),var(--orange-deep)); transition:transform .28s cubic-bezier(.4,0,.2,1); box-shadow:0 2px 8px rgba(0,0,0,.3);}
+[data-theme="light"] .tthumb{transform:translateX(23px);}
+
+@media(max-width:900px){
+  .nav-links{display:none;}
+}

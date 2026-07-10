@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Services That Grow Traffic &amp; Revenue | DashmindsIQ</title>
+<meta name="description" content="SEO that ranks you where your customers are searching. Technical fixes, content, and authority-building that turn organic search into a revenue channel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="navbar.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0F0B08;
+    --bg-2:#1A130D;
+    --bg-3:#251A10;
+    --text:#FBF4EC;
+    --text-dim:#B0A192;
+    --orange:#F97316;
+    --orange-bright:#FB923C;
+    --orange-pale:#FDBA74;
+    --orange-deep:#9A3412;
+    --yellow:#FACC15;
+    --line:rgba(255,255,255,.12);
+    --line-soft:rgba(255,255,255,.07);
+    --glass-bg:rgba(255,255,255,.06);
+    --glass-border:rgba(255,255,255,.14);
+    --header-bg:rgba(15,11,8,.75);
+    --grid-line:rgba(255,255,255,.05);
+    --hero-mid:#241708;
+    --noise-opacity:.4;
+    --shadow-1:rgba(0,0,0,.35);
+    --dropdown-bg:rgba(20,14,9,.99);
+  }
+  :root[data-theme="light"]{
+    --bg:#FFFFFF;
+    --bg-2:#FDF8F2;
+    --bg-3:#FBEFDD;
+    --text:#231A10;
+    --text-dim:#786757;
+    --orange:#EA580C;
+    --orange-bright:#EA580C;
+    --orange-pale:#C2410C;
+    --orange-deep:#9A3412;
+    --yellow:#CA8A04;
+    --line:rgba(35,26,16,.12);
+    --line-soft:rgba(35,26,16,.07);
+    --glass-bg:rgba(234,88,12,.05);
+    --glass-border:rgba(234,88,12,.16);
+    --header-bg:rgba(255,255,255,.78);
+    --grid-line:rgba(35,26,16,.05);
+    --hero-mid:#FCEBD5;
+    --noise-opacity:.12;
+    --shadow-1:rgba(154,52,18,.14);
+    --dropdown-bg:rgba(253,249,244,.99);
+  }
+  [data-theme]{ transition:background-color .3s ease, color .3s ease; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  a{text-decoration:none; color:inherit;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; letter-spacing:-0.01em; font-weight:600;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-bright); font-weight:500; display:flex; align-items:center; gap:8px;}
+  .eyebrow::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--yellow);}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:100px; font-weight:600; font-size:14px; cursor:pointer; border:none; transition:transform .18s ease, box-shadow .18s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--orange); color:#FFFFFF; box-shadow:0 6px 20px rgba(249,115,22,.35);}
+  .btn-primary:hover{background:var(--orange-bright); box-shadow:0 10px 28px rgba(249,115,22,.5);}
+  .btn-ghost{background:var(--orange); border:1px solid var(--orange); color:#FFFFFF;}
+  .btn-ghost:hover{border-color:var(--orange-bright); background:var(--orange-bright);}
+  .wrap{max-width:1080px; margin:0 auto; padding-left:32px; padding-right:32px;}
+  section{padding-top:50px; padding-bottom:50px;}
+  .section-divider{border-top:1px solid var(--line-soft);}
+
+  /* ===== TOP NAV (shared) ===== */
+  header{position:sticky; top:0; z-index:50; background:var(--header-bg); backdrop-filter:blur(14px); border-bottom:1px solid var(--line-soft);}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:18px 32px; max-width:1080px; margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:9px; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px;}
+  .logo .mark{width:30px; height:30px; border-radius:9px; background:linear-gradient(135deg,var(--orange),var(--orange-deep)); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .logo span.iq{color:var(--orange-bright);}
+  .nav-links{display:flex; gap:34px; font-size:14.5px; font-weight:500; color:var(--text-dim);}
+  .nav-links a{position:relative; padding-bottom:2px;}
+  .nav-links a::after{content:''; position:absolute; left:0; bottom:-2px; width:0; height:1.5px; background:var(--orange-bright); transition:width .2s ease;}
+  .nav-links a:hover{color:var(--text);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-links a.active{color:var(--text);}
+  .nav-links a.active::after{width:100%;}
+
+  .nav-item{position:relative;}
+  .nav-dropdown{
+    position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(-6px);
+    width:680px; padding-top:18px;
+    opacity:0; visibility:hidden; pointer-events:none;
+    transition:opacity .18s ease, transform .18s ease, visibility .18s ease; z-index:60;
+  }
+  .nav-item:hover .nav-dropdown{opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);}
+  .nav-dropdown-inner{
+    position:relative;
+    background:var(--dropdown-bg); border:1px solid var(--glass-border); border-radius:16px;
+    padding:24px; backdrop-filter:blur(32px) saturate(160%); -webkit-backdrop-filter:blur(32px) saturate(160%);
+    box-shadow:0 14px 34px var(--shadow-1);
+    display:grid; grid-template-columns:1fr 2px 3fr; gap:22px;
+  }
+  .nav-dropdown-inner::before{content:''; position:absolute; top:-6px; left:50%; transform:translateX(-50%) rotate(45deg); width:11px; height:11px; background:var(--dropdown-bg); border-left:1px solid var(--glass-border); border-top:1px solid var(--glass-border);}
+  .dd-divider{background:var(--line-soft); width:1px; justify-self:center;}
+  .dd-group-title{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.09em; text-transform:uppercase; color:var(--text-dim); margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--line-soft);}
+  .dd-subcols{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .nav-dropdown .dd-title{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13px; color:var(--text); margin-bottom:12px; white-space:nowrap;}
+  .nav-dropdown .dd-list{display:flex; flex-direction:column; gap:2px;}
+  .nav-dropdown .dd-list a{display:block; font-size:12.5px; font-weight:500; color:var(--text-dim); padding:7px 8px; border-radius:8px; transition:background .15s ease, color .15s ease; white-space:normal; line-height:1.35;}
+  .nav-dropdown .dd-list a:hover{background:var(--bg-3); color:var(--orange-bright);}
+  .nav-dropdown .dd-list a::after{display:none;}
+  .nav-dropdown .dd-list a.current{color:var(--orange-bright); background:var(--bg-3);}
+  @media(max-width:1100px){ .nav-dropdown{width:520px;} .nav-dropdown-inner{grid-template-columns:1fr;} .dd-divider{display:none;} .dd-subcols{grid-template-columns:repeat(3,1fr);} }
+
+  .theme-toggle{background:none; border:none; cursor:pointer; padding:2px; line-height:0;}
+  .ttrack{position:relative; width:50px; height:27px; background:var(--bg-3); border:1px solid var(--line); border-radius:100px; display:flex; align-items:center; justify-content:space-between; padding:0 6px; transition:background .3s ease;}
+  .ticon{font-size:11px; z-index:1; opacity:.7;}
+  .tthumb{position:absolute; top:2px; left:2px; width:21px; height:21px; border-radius:50%; background:linear-gradient(135deg,var(--orange),var(--orange-deep)); transition:transform .28s cubic-bezier(.4,0,.2,1); box-shadow:0 2px 8px rgba(0,0,0,.3);}
+  [data-theme="light"] .tthumb{transform:translateX(23px);}
+
+  /* ===== PAGE HERO ===== */
+  .phero-bg{position:relative; min-height:420px; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:80px 24px 60px;}
+  .phero-bg::before{
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 18% 22%, rgba(249,115,22,.5), transparent 42%),
+      radial-gradient(circle at 82% 78%, rgba(154,52,18,.55), transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(250,204,21,.28), transparent 35%),
+      linear-gradient(160deg, var(--bg) 0%, var(--hero-mid) 50%, var(--bg) 100%);
+    filter:blur(2px);
+  }
+  .phero-bg .grid-overlay{
+    position:absolute; inset:0;
+    background-image:linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size:44px 44px;
+    mask-image:radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+  .phero-bg .noise{position:absolute; inset:0; opacity:var(--noise-opacity); mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  }
+  .phero-inner{position:relative; z-index:2; max-width:680px; text-align:center; margin:0 auto;}
+  .phero-inner .eyebrow{justify-content:center;}
+  .phero-inner h1{font-size:44px; line-height:1.12; margin:18px 0 18px;}
+  .outline-text{color:transparent; -webkit-text-stroke:2px var(--orange-pale);}
+  @supports not (-webkit-text-stroke: 1px black){ .outline-text{color:var(--orange-pale);} }
+  .phero-inner p.lead{font-size:15.5px; color:var(--text-dim); line-height:1.65; margin-bottom:30px;}
+  .phero-actions{display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap;}
+
+  /* ===== SECTION HEAD ===== */
+  .section-head{max-width:640px; margin-bottom:44px;}
+  .section-head h2{font-size:32px; margin-top:12px;}
+  .section-head p{color:var(--text-dim); margin-top:10px; font-size:14.5px; line-height:1.6;}
+  .section-head.centered{margin-left:auto; margin-right:auto; text-align:center; max-width:640px;}
+  .section-head.centered .eyebrow{justify-content:center;}
+
+  /* ===== THE PROBLEM — editorial prose block ===== */
+  .problem-block{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;}
+  .problem-block h2{font-size:30px; line-height:1.3;}
+  .problem-block p{font-size:14.5px; color:var(--text-dim); line-height:1.75; margin-bottom:16px;}
+  .problem-block p:last-child{margin-bottom:0;}
+  @media(max-width:900px){ .problem-block{grid-template-columns:1fr; gap:20px;} }
+
+  /* ===== WHAT WE DO — capability list ===== */
+  .cap-list{display:flex; flex-direction:column;}
+  .cap-row{display:grid; grid-template-columns:56px 1fr; gap:22px; padding:26px 0; border-bottom:1px solid var(--line-soft); align-items:start;}
+  .cap-row:last-child{border-bottom:none;}
+  .cap-icon{width:44px; height:44px; border-radius:12px; background:rgba(249,115,22,.14); border:1px solid rgba(249,115,22,.3); display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--orange-bright);}
+  .cap-row h3{font-size:17px; margin-bottom:6px;}
+  .cap-row p{font-size:13.5px; color:var(--text-dim); line-height:1.65; max-width:640px;}
+
+  /* ===== APPROACH — card row ===== */
+.approach-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  align-items:stretch;
+}
+
+.approach-card{
+  position:relative;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:var(--bg-2);
+  padding:26px 22px;
+  transition:transform .2s ease,border-color .2s ease;
+}
+
+.approach-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--orange-bright);
+}
+
+.approach-card .step-num{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;
+  font-size:34px;
+  line-height:1;
+  color:var(--orange-bright);
+  margin-bottom:14px;
+}
+
+.approach-card h3{
+  font-size:15.5px;
+  margin-bottom:8px;
+}
+
+.approach-card p{
+  font-size:13px;
+  color:var(--text-dim);
+  line-height:1.55;
+}
+
+
+
+@media(max-width:900px){
+  .approach-grid{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .approach-card::after{
+    content:none;
+  }
+}
+
+  /* ===== CASE STUDY — stats + narrative ===== */
+  .stat-ticker{display:flex; align-items:stretch; gap:0; border:1px solid var(--line); border-radius:20px; padding:8px; flex-wrap:wrap; justify-content:center; margin-bottom:34px; background:var(--bg-2);}
+  .stat-ticker .stat{flex:1; min-width:190px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:22px 20px; border-right:1px solid var(--line-soft); text-align:center;}
+  .stat-ticker .stat:last-child{border-right:none;}
+  .stat-ticker .stat b{font-family:'Space Grotesk',sans-serif; font-size:30px; color:var(--orange-bright);}
+  .stat-ticker .stat span{font-size:12px; color:var(--text-dim); line-height:1.4;}
+  @media(max-width:700px){ .stat-ticker{flex-direction:column;} .stat-ticker .stat{border-right:none; border-bottom:1px solid var(--line-soft);} .stat-ticker .stat:last-child{border-bottom:none;} }
+
+  .case-narrative{border:1px solid var(--line); border-radius:18px; background:var(--bg-2); padding:32px 36px;}
+  .case-narrative p{font-size:14.5px; color:var(--text-dim); line-height:1.75; margin-bottom:18px;}
+  .case-narrative .case-link{font-size:13.5px; font-weight:600; color:var(--orange-bright);}
+
+  /* ===== WHY DASHMINDSIQ — 3 pillar cards ===== */
+  .why-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .why-card{border:1px solid var(--line); border-radius:18px; padding:26px; background:var(--bg-2); transition:transform .2s, border-color .2s;}
+  .why-card:hover{transform:translateY(-3px); border-color:var(--orange-bright);}
+  .why-card h3{font-size:16.5px; margin-bottom:10px; color:var(--orange-bright);}
+  .why-card p{font-size:13.5px; color:var(--text-dim); line-height:1.6;}
+  @media(max-width:900px){ .why-grid{grid-template-columns:1fr;} }
+
+  /* ===== CTA banner ===== */
+  .cta-banner{background:linear-gradient(135deg, var(--orange-deep), var(--orange)); border-radius:24px; padding:44px 40px; position:relative; overflow:hidden; box-shadow:0 20px 50px rgba(154,52,18,.35); text-align:center;}
+  .cta-banner::after{content:''; position:absolute; top:-40%; right:-8%; width:220px; height:220px; background:rgba(255,255,255,.14); transform:rotate(20deg); border-radius:30%;}
+  .cta-banner h3{font-size:26px; margin:6px 0 4px; position:relative; color:#fff;}
+  .cta-banner p{font-size:14px; color:rgba(255,255,255,.75); position:relative; margin:0 auto 20px; max-width:440px;}
+  .cta-banner .eyebrow{color:#fff; justify-content:center;}
+  .cta-banner .eyebrow::before{background:#fff;}
+
+  /* ===== FAQ (accordion, shared pattern) ===== */
+  .faq-list{max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:10px;}
+  .faq-item{border:1px solid var(--line); border-radius:14px; background:var(--bg-2); overflow:hidden;}
+  .faq-q{width:100%; text-align:left; background:none; border:none; padding:19px 22px; display:flex; align-items:center; justify-content:space-between; gap:16px; cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600; color:var(--text);}
+  .faq-q .plus{flex-shrink:0; width:22px; height:22px; border-radius:50%; border:1.5px solid var(--orange-bright); color:var(--orange-bright); display:flex; align-items:center; justify-content:center; font-size:14px; transition:transform .25s ease;}
+  .faq-item.open .faq-q .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .3s ease;}
+  .faq-a p{padding:0 22px 20px; font-size:13.5px; color:var(--text-dim); line-height:1.65; max-width:640px;}
+  .faq-item.open .faq-a{max-height:260px;}
+
+  footer{border-top:1px solid var(--line-soft); padding:36px 0; display:flex; justify-content:space-between; font-size:12.5px; color:var(--text-dim); flex-wrap:wrap; gap:10px;}
+
+  /* ===== FLOATING AUDIT BUTTON ===== */
+  .float-audit{
+    position:fixed; bottom:26px; right:26px;
+    display:inline-flex; align-items:center; gap:9px;
+    padding:15px 26px; border-radius:100px; z-index:80;
+    background:linear-gradient(135deg,var(--orange),var(--yellow)); color:#1A1105;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px;
+    box-shadow:0 10px 30px rgba(249,115,22,.45), inset 0 1px 0 rgba(255,255,255,.25);
+    border:1px solid rgba(255,255,255,.15);
+    transition:transform .2s ease, box-shadow .2s ease;
+    animation:audit-pop .5s cubic-bezier(.34,1.56,.64,1) .3s both;
+  }
+  .float-audit:hover{transform:translateY(-3px); box-shadow:0 16px 38px rgba(249,115,22,.55);}
+  .float-audit .dot-live{width:7px; height:7px; border-radius:50%; background:#1A1105; animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+  @keyframes audit-pop{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+  @media(max-width:640px){
+    .float-audit{bottom:18px; right:18px; padding:13px 20px; font-size:13.5px;}
+  }
+
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .phero-inner h1{font-size:30px;}
+    section{padding-top:64px; padding-bottom:64px;}
+  }
+</style>
+</head>
+<body>
+
+<a href="#final-cta" class="float-audit">
+  <span class="dot-live"></span>
+  Get your free SEO review
+</a>
+
+<div id="navbar-placeholder"></div>
+
+<main id="top">
+
+  <!-- 1 · HERO -->
+  <div class="phero-bg">
+    <div class="grid-overlay"></div>
+    <div class="noise"></div>
+    <div class="phero-inner">
+      <div class="eyebrow">SEO</div>
+      <h1>SEO that turns search into your best <span class="outline-text">revenue</span> channel</h1>
+      <p class="lead">We help B2B, B2C, and D2C brands rank for the terms their customers actually search — and turn that visibility into leads, sales, and sustainable growth. No tricks, no jargon, just search performance you can measure.</p>
+      <div class="phero-actions">
+        <a href="#final-cta" class="btn btn-primary">Get your free SEO review →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 · THE PROBLEM -->
+  <section id="problem" class="wrap section-divider">
+    <div class="problem-block">
+      <div>
+        <div class="eyebrow">The Problem</div>
+        <h2>Great content that Google can't see isn't working for you.</h2>
+      </div>
+      <div>
+        <p>Most businesses are publishing more than ever — and getting less for it. Pages that should rank sit on page three. Competitors with weaker products outrank you because their sites are easier for Google to understand. And "doing SEO" has become a checklist of tactics disconnected from any actual revenue.</p>
+        <p>The result is wasted effort: traffic that never converts, or rankings that never come. SEO only works when technical health, content, and authority pull in the same direction — toward the searches that bring you customers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · WHAT WE DO -->
+  <section id="what-we-do" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">What We Do</div>
+      <h2>Full-funnel SEO, built on evidence, not guesswork.</h2>
+      <p>We cover every lever that moves organic rankings — and start with the ones that will move yours fastest.</p>
+    </div>
+    <div class="cap-list">
+      <div class="cap-row">
+        <div class="cap-icon">⚙</div>
+        <div>
+          <h3>Technical SEO</h3>
+          <p>We fix what's holding your site back: site speed and Core Web Vitals, crawlability, indexation, site structure, and structured data, so Google can find, understand, and reward your pages.</p>
+        </div>
+      </div>
+      <div class="cap-row">
+        <div class="cap-icon">✎</div>
+        <div>
+          <h3>On-page &amp; content SEO</h3>
+          <p>We optimise your existing pages and build new ones around the keywords and topics your customers search — with the entity-rich, intent-matched content that ranks in 2026.</p>
+        </div>
+      </div>
+      <div class="cap-row">
+        <div class="cap-icon">◎</div>
+        <div>
+          <h3>Keyword &amp; search strategy</h3>
+          <p>We map the searches that lead to revenue, not just traffic, and prioritise the terms where you can realistically win.</p>
+        </div>
+      </div>
+      <div class="cap-row">
+        <div class="cap-icon">◈</div>
+        <div>
+          <h3>Authority &amp; link building</h3>
+          <p>We earn the backlinks and brand mentions that tell Google you're a trusted source, through digital PR, data-led content, and outreach.</p>
+        </div>
+      </div>
+      <div class="cap-row">
+        <div class="cap-icon">◐</div>
+        <div>
+          <h3>Local &amp; technical scaling</h3>
+          <p>Where relevant, we optimise for local search, multi-region targeting, and the AI engines (ChatGPT, Perplexity) that increasingly send traffic.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · OUR APPROACH -->
+  <section id="approach" class="wrap section-divider">
+  <div class="section-head">
+    <div class="eyebrow">Our Approach</div>
+    <h2>A clear path from invisible to first page.</h2>
+    <p>SEO works best when every step builds on the last. Here's how we create sustainable organic growth.</p>
+  </div>
+
+  <div class="approach-grid">
+
+    <div class="approach-card">
+      <div class="step-num mono">01</div>
+      <h3>Audit</h3>
+      <p>We analyse your rankings, technical health, content, competitors, and search opportunities to uncover the biggest wins.</p>
+    </div>
+
+    <div class="approach-card">
+      <div class="step-num mono">02</div>
+      <h3>Strategy</h3>
+      <p>We prioritise quick wins alongside long-term SEO initiatives, creating a roadmap that delivers steady, compounding growth.</p>
+    </div>
+
+    <div class="approach-card">
+      <div class="step-num mono">03</div>
+      <h3>Execute</h3>
+      <p>Our team implements technical improvements, optimises existing pages, creates new content, and builds your site's authority.</p>
+    </div>
+
+    <div class="approach-card">
+      <div class="step-num mono">04</div>
+      <h3>Measure &amp; Refine</h3>
+      <p>We monitor rankings, traffic, leads, and revenue, refining the strategy every month to maximise long-term search performance.</p>
+    </div>
+
+  </div>
+</section>
+
+  <!-- 5 · FEATURED CASE STUDY -->
+  <section id="case-study" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">Featured Case Study</div>
+      <h2>Results that show up in the numbers.</h2>
+    </div>
+    <div class="stat-ticker">
+      <div class="stat"><b>+312%</b><span>Organic traffic in 12 months<br>[client / sector]</span></div>
+      <div class="stat"><b>P3 → P4</b><span>Page 3 to Position 4<br>for [target keyword]</span></div>
+      <div class="stat"><b>[X]</b><span>Qualified leads per month<br>from organic — [client]</span></div>
+    </div>
+    <div class="case-narrative">
+      <p>When [Client]'s visibility had fallen 85% in a year, we rebuilt their technical foundation, expanded thin content into authoritative pages, and earned 20+ backlinks through a data-led campaign. Within six months, organic traffic had tripled and they were ranking on page one for their priority terms.</p>
+      <a href="#" class="case-link">Read the full case study →</a>
+    </div>
+  </section>
+
+  <!-- 6 · WHY DASHMINDSIQ -->
+  <section id="why-us" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">Why DashMindsIQ</div>
+      <h2>SEO that's accountable to your business, not vanity metrics.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <h3>Evidence over guesswork</h3>
+        <p>Every recommendation comes from your real search data, analysed before we act — not a generic checklist.</p>
+      </div>
+      <div class="why-card">
+        <h3>Content Google and AI engines trust</h3>
+        <p>We build the entity-rich, credible content that ranks in traditional search and gets cited by AI answer engines.</p>
+      </div>
+      <div class="why-card">
+        <h3>Tied to revenue</h3>
+        <p>We measure success in leads and sales, not just rankings — so you always know what your SEO investment returns.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · FINAL CTA -->
+  <section id="final-cta" class="wrap">
+    <div class="cta-banner">
+      <div class="eyebrow">Ready to fix what's holding you back?</div>
+      <h3>See exactly where your SEO is leaking traffic — and revenue.</h3>
+      <p>Get a free SEO audit. We'll show you the gaps holding your rankings back and the fastest wins available to you — no obligation.</p>
+      <a href="mailto:hello@dashmindsiq.com" class="btn btn-ghost" style="background:#fff; color:var(--orange-deep);">Get your free audit →</a>
+    </div>
+  </section>
+
+  <!-- 8 · FAQ -->
+  <section id="faq" class="wrap section-divider">
+    <div class="section-head centered">
+      <div class="eyebrow">FAQ</div>
+      <h2>Questions, answered.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q"><span>How long does SEO take to work?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Typically three to six months to see meaningful movement, with results compounding from there. Technical fixes and quick wins can show earlier; competitive terms take longer. In your audit we'll give you a realistic timeline for your specific situation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Can you guarantee a #1 ranking?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>No honest agency can — Google's algorithm isn't for sale. What we can promise is a proven process, transparent reporting, and steady, compounding progress toward the rankings that bring you customers.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Do I need SEO if I'm already running paid ads?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>They work best together. Paid gets you immediate visibility; SEO builds an owned channel that keeps delivering long after you stop paying per click. Most clients run both and shift the balance as organic grows.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>What makes your SEO different?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>We start with your real data, focus on revenue rather than vanity metrics, and build content that ranks in both Google and the AI engines now shaping search. You get deliverables, not just reports.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>© 2026 DashmindsIQ Digital Marketing. All rights reserved.</span>
+    <span>Privacy Policy · Terms &amp; Conditions</span>
+  </footer>
+
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does SEO take to work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Typically three to six months to see meaningful movement, with results compounding from there. Technical fixes and quick wins can show earlier; competitive terms take longer. In your audit we'll give you a realistic timeline for your specific situation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you guarantee a #1 ranking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No honest agency can — Google's algorithm isn't for sale. What we can promise is a proven process, transparent reporting, and steady, compounding progress toward the rankings that bring you customers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need SEO if I'm already running paid ads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They work best together. Paid gets you immediate visibility; SEO builds an owned channel that keeps delivering long after you stop paying per click. Most clients run both and shift the balance as organic grows."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes your SEO different?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We start with your real data, focus on revenue rather than vanity metrics, and build content that ranks in both Google and the AI engines now shaping search. You get deliverables, not just reports."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+  /* Theme toggle: dark <-> light (shared with site) */
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('theme-toggle');
+  themeBtn.addEventListener('click', () => {
+    const isLight = root.getAttribute('data-theme') === 'light';
+    root.setAttribute('data-theme', isLight ? 'dark' : 'light');
+    themeBtn.setAttribute('aria-pressed', String(!isLight));
+  });
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+<script src="navbar.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketing Automation & CRM Services | DashMindsIQ</title>
+<meta name="description" content="Marketing automation that nurtures leads and scales your team. CRM setup, lead scoring, and workflows that move prospects toward buying, automatically.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="navbar.css">
+<style>
+  :root{
+    --bg:#0F0B08;
+    --bg-2:#1A130D;
+    --bg-3:#251A10;
+    --text:#FBF4EC;
+    --text-dim:#B0A192;
+    --orange:#F97316;
+    --orange-bright:#FB923C;
+    --orange-pale:#FDBA74;
+    --orange-deep:#9A3412;
+    --yellow:#FACC15;
+    --line:rgba(255,255,255,.12);
+    --line-soft:rgba(255,255,255,.07);
+    --glass-bg:rgba(255,255,255,.06);
+    --glass-border:rgba(255,255,255,.14);
+    --header-bg:rgba(15,11,8,.75);
+    --grid-line:rgba(255,255,255,.05);
+    --hero-mid:#241708;
+    --noise-opacity:.4;
+    --shadow-1:rgba(0,0,0,.35);
+    --dropdown-bg:rgba(20,14,9,.99);
+  }
+  :root[data-theme="light"]{
+    --bg:#FFFFFF;
+    --bg-2:#FDF8F2;
+    --bg-3:#FBEFDD;
+    --text:#231A10;
+    --text-dim:#786757;
+    --orange:#EA580C;
+    --orange-bright:#EA580C;
+    --orange-pale:#C2410C;
+    --orange-deep:#9A3412;
+    --yellow:#CA8A04;
+    --line:rgba(35,26,16,.12);
+    --line-soft:rgba(35,26,16,.07);
+    --glass-bg:rgba(234,88,12,.05);
+    --glass-border:rgba(234,88,12,.16);
+    --header-bg:rgba(255,255,255,.78);
+    --grid-line:rgba(35,26,16,.05);
+    --hero-mid:#FCEBD5;
+    --noise-opacity:.12;
+    --shadow-1:rgba(154,52,18,.14);
+    --dropdown-bg:rgba(253,249,244,.99);
+  }
+  [data-theme]{ transition:background-color .3s ease, color .3s ease; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  a{text-decoration:none; color:inherit;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; letter-spacing:-0.01em; font-weight:600;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-bright); font-weight:500; display:flex; align-items:center; gap:8px;}
+  .eyebrow::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--yellow);}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:100px; font-weight:600; font-size:14px; cursor:pointer; border:none; transition:transform .18s ease, box-shadow .18s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--orange); color:#FFFFFF; box-shadow:0 6px 20px rgba(249,115,22,.35);}
+  .btn-primary:hover{background:var(--orange-bright); box-shadow:0 10px 28px rgba(249,115,22,.5);}
+  .btn-ghost{background:var(--orange); border:1px solid var(--orange); color:#FFFFFF;}
+  .btn-ghost:hover{border-color:var(--orange-bright); background:var(--orange-bright);}
+  .wrap{max-width:1080px; margin:0 auto; padding:40px 32px;}
+  section{padding-top:50px; padding-bottom:50px;}
+  .section-divider{border-top:1px solid var(--line-soft);}
+
+  /* ===== HERO ===== */
+  .hero-bg{position:relative; min-height:520px; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:60px 24px;}
+  .hero-bg::before{
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 18% 22%, rgba(249,115,22,.5), transparent 42%),
+      radial-gradient(circle at 82% 78%, rgba(154,52,18,.55), transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(250,204,21,.26), transparent 35%),
+      linear-gradient(160deg, var(--bg) 0%, var(--hero-mid) 50%, var(--bg) 100%);
+    filter:blur(2px);
+  }
+  .hero-bg .grid-overlay{
+    position:absolute; inset:0;
+    background-image:linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size:44px 44px;
+    mask-image:radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+  .hero-bg .noise{position:absolute; inset:0; opacity:var(--noise-opacity); mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  }
+  .glass-card{
+    position:relative; z-index:2; max-width:640px; text-align:center;
+    background:var(--glass-bg);
+    border:1px solid var(--glass-border);
+    border-radius:28px; padding:56px 46px;
+    backdrop-filter:blur(22px) saturate(150%);
+    -webkit-backdrop-filter:blur(22px) saturate(150%);
+    box-shadow:0 8px 42px rgba(249,115,22,.18), inset 0 1px 0 var(--glass-border);
+  }
+  .glass-card .eyebrow{justify-content:center;}
+  .glass-card h1{font-size:44px; line-height:1.08; margin:18px 0 18px;}
+  .glass-card p.lead{font-size:15.5px; color:var(--text-dim); line-height:1.6; margin-bottom:28px;}
+  .hero-actions{display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap;}
+
+  /* ===== SECTION HEAD ===== */
+  .section-head{max-width:620px; margin-bottom:32px;}
+  .section-head h2{font-size:28px; margin-top:10px;}
+  .section-head.centered{margin-left:auto; margin-right:auto; text-align:center;}
+  .section-head.centered .eyebrow{justify-content:center;}
+
+  /* ===== PROBLEM ===== */
+  .problem-text{font-size:15px; color:var(--text-dim); line-height:1.75; max-width:820px;}
+  .problem-text em{color:var(--orange-pale); font-style:normal; font-weight:600;}
+
+  /* ===== WHAT WE DO — simple list ===== */
+  .offer-list{display:flex; flex-direction:column; gap:0; max-width:820px;}
+  .offer-row{display:flex; gap:14px; padding:16px 0; border-bottom:1px solid var(--line-soft);}
+  .offer-row:last-child{border-bottom:none;}
+  .offer-row .dash{color:var(--orange-bright); font-weight:700; flex-shrink:0;}
+  .offer-row b{font-size:14.5px;}
+  .offer-row span{font-size:14px; color:var(--text-dim); line-height:1.6;}
+
+  /* ===== HOW WE WORK ===== */
+
+.approach-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  align-items:stretch;
+}
+
+.approach-card{
+  position:relative;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:var(--bg-2);
+  padding:26px 22px;
+  transition:transform .2s ease,border-color .2s ease;
+}
+
+.approach-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--orange-bright);
+}
+
+.approach-card .step-num{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:34px;
+  font-weight:700;
+  line-height:1;
+  color:var(--orange-bright);
+  margin-bottom:14px;
+}
+
+.approach-card h3{
+  font-size:15.5px;
+  margin-bottom:8px;
+}
+
+.approach-card p{
+  font-size:13px;
+  color:var(--text-dim);
+  line-height:1.55;
+}
+
+
+
+@media(max-width:900px){
+  .approach-grid{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .approach-card::after{
+    content:none;
+  }
+}
+
+  /* ===== CASE STUDY ===== */
+  .case-study{border:1px solid var(--line); border-radius:22px; background:var(--bg-2); padding:40px; display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:start;}
+  .stat-list{display:flex; flex-direction:column; gap:16px;}
+  .stat-row{display:flex; align-items:baseline; gap:10px; border-bottom:1px dashed var(--line-soft); padding-bottom:14px;}
+  .stat-row b{font-family:'Space Grotesk',sans-serif; font-size:22px; color:var(--orange-bright); white-space:nowrap;}
+  .stat-row span{font-size:13px; color:var(--text-dim);}
+  .mini-case{font-size:13.5px; color:var(--text-dim); font-style:italic; line-height:1.65; padding:18px; border-left:2px solid var(--orange-bright); background:var(--bg-3); border-radius:0 12px 12px 0;}
+
+  /* ===== INSIGHTS ===== */
+  .insights-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .insight-card{border:1px solid var(--line); border-radius:16px; padding:22px; background:var(--bg-2); transition:transform .2s, border-color .2s;}
+  .insight-card:hover{transform:translateY(-3px); border-color:var(--orange-bright);}
+  .insight-card .cat{font-family:'IBM Plex Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--orange-bright);}
+  .insight-card h3{font-size:16px; margin:10px 0 8px;}
+  .insight-card p{font-size:13px; color:var(--text-dim); line-height:1.55; margin-bottom:14px;}
+  .insight-card .read{font-size:12.5px; font-weight:600; color:var(--orange-bright);}
+
+  /* ===== WHY US ===== */
+  .why-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .why-card{border:1px solid var(--line); border-radius:18px; padding:26px; background:var(--bg-2); transition:transform .2s, border-color .2s;}
+  .why-card:hover{transform:translateY(-3px); border-color:var(--orange-bright);}
+  .why-card h3{font-size:16.5px; margin-bottom:8px; color:var(--orange-bright);}
+  .why-card p{font-size:13.5px; color:var(--text-dim); line-height:1.55;}
+
+  /* ===== CTA STRIP (inline) ===== */
+  .cta-strip{
+    display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+    border:1px solid rgba(249,115,22,.35); border-radius:18px;
+    background:linear-gradient(120deg, rgba(249,115,22,.14), rgba(154,52,18,.16));
+    padding:26px 30px;
+  }
+  .cta-strip p{font-size:14.5px; color:var(--text); line-height:1.55; max-width:560px;}
+  .cta-strip p em{color:var(--orange-pale); font-style:normal; font-weight:600;}
+
+  /* ===== FAQ — native accordion ===== */
+  .faq-list{display:flex; flex-direction:column; gap:10px; max-width:820px;}
+  .faq-item{border:1px solid var(--line); border-radius:14px; background:var(--bg-2); overflow:hidden;}
+  .faq-item summary{list-style:none; cursor:pointer; padding:18px 22px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:'+'; font-family:'IBM Plex Mono',monospace; font-size:18px; color:var(--orange-bright); transition:transform .2s ease; flex-shrink:0;}
+  .faq-item[open] summary::after{transform:rotate(45deg);}
+  .faq-item .faq-a{padding:0 22px 20px; font-size:13.5px; color:var(--text-dim); line-height:1.65;}
+
+  /* ===== CLOSING ===== */
+  .closing{text-align:center; padding:30px 0 0;}
+  .closing p{font-size:15px; color:var(--text-dim);}
+  .closing a{color:var(--orange-bright); font-weight:600;}
+
+  footer{border-top:1px solid var(--line-soft); padding:36px 0; display:flex; justify-content:space-between; font-size:12.5px; color:var(--text-dim); flex-wrap:wrap; gap:10px;}
+
+  /* ===== FLOATING AUDIT BUTTON ===== */
+  .float-audit{
+    position:fixed; bottom:26px; right:26px;
+    display:inline-flex; align-items:center; gap:9px;
+    padding:15px 26px; border-radius:100px; z-index:80;
+    background:linear-gradient(135deg,var(--orange),var(--yellow)); color:#1A1105;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px;
+    box-shadow:0 10px 30px rgba(249,115,22,.45), inset 0 1px 0 rgba(255,255,255,.25);
+    border:1px solid rgba(255,255,255,.15);
+    transition:transform .2s ease, box-shadow .2s ease;
+    animation:audit-pop .5s cubic-bezier(.34,1.56,.64,1) .3s both;
+  }
+  .float-audit:hover{transform:translateY(-3px); box-shadow:0 16px 38px rgba(249,115,22,.55);}
+  .float-audit .dot-live{width:7px; height:7px; border-radius:50%; background:#1A1105; animation:pulse 1.6s infinite;}
+  @keyframes audit-pop{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+  @media(max-width:640px){
+    .float-audit{bottom:18px; right:18px; padding:13px 20px; font-size:13.5px;}
+  }
+
+  @media(max-width:900px){
+    .insights-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    .case-study{grid-template-columns:1fr;}
+    
+    .glass-card h1{font-size:32px;}
+    .glass-card{padding:36px 24px;}
+    section{padding:60px 0;}
+  }
+</style>
+</head>
+<body>
+
+<a href="#cta" class="float-audit">
+  <span class="dot-live"></span>
+  Get your free audit
+</a>
+
+<div id="navbar-placeholder"></div>
+
+<main id="top">
+
+  <div class="hero-bg">
+    <div class="grid-overlay"></div>
+    <div class="noise"></div>
+    <div class="glass-card">
+      <div class="eyebrow">Marketing Automation & CRM</div>
+      <h1>Marketing automation that scales what your team can't do by hand</h1>
+      <p class="lead">We design and build the workflows, lead scoring, and CRM systems that nurture every prospect properly — so no lead goes cold, and your sales team spends its time on the people ready to buy.</p>
+      <div class="hero-actions">
+        <a href="#cta" class="btn btn-primary">See your automation opportunities →</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="problem" class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The Problem</div>
+      <h2>Leads go cold while your team is busy elsewhere.</h2>
+    </div>
+    <p class="problem-text">Prospects who aren't ready to buy today get forgotten tomorrow. Follow-up depends on someone remembering. Sales and marketing work from different data and argue about lead quality, because nobody can say which leads are genuinely worth calling.<br><br>The default answer is to hire more people to do more manual work. The better answer is to build systems that nurture every lead consistently, score them objectively, and hand sales only the ones that are ready — <em>so growth doesn't depend on headcount</em>.</p>
+  </section>
+
+  <section id="what-we-do" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">What We Do</div>
+      <h2>Systems that nurture, score, and convert — automatically.</h2>
+    </div>
+    <p class="problem-text" style="margin-bottom:24px;">We build the infrastructure that turns scattered follow-up into a reliable, scalable pipeline.</p>
+    <div class="offer-list">
+      <div class="offer-row"><span class="dash">—</span><div><b>CRM setup & integration</b> <span>— HubSpot, Salesforce, and others configured properly and connected to your website, ads, and channels so data flows in one direction: forward.</span></div></div>
+      <div class="offer-row"><span class="dash">—</span><div><b>Lead nurture workflows</b> <span>— Automated sequences that educate and warm prospects over time until they're genuinely sales-ready.</span></div></div>
+      <div class="offer-row"><span class="dash">—</span><div><b>Lead scoring & routing</b> <span>— Objective scoring that prioritises the leads most likely to convert, routed instantly to the right person.</span></div></div>
+      <div class="offer-row"><span class="dash">—</span><div><b>Lifecycle & retention automation</b> <span>— Onboarding, upsell, and win-back journeys that grow the value of every customer you win.</span></div></div>
+      <div class="offer-row"><span class="dash">—</span><div><b>Data hygiene & reporting</b> <span>— Clean, deduplicated data and shared dashboards, so sales and marketing finally see the same truth.</span></div></div>
+    </div>
+  </section>
+
+  <section id="approach" class="wrap section-divider">
+
+  <div class="section-head">
+    <div class="eyebrow">Our Approach</div>
+    <h2>From manual chasing to a pipeline that runs itself.</h2>
+  </div>
+
+  <div class="approach-grid">
+
+    <div class="approach-card">
+      <div class="step-num mono">01</div>
+      <h3>Audit</h3>
+      <p>We review your funnel, CRM, handoffs, and existing processes to identify where leads leak and manual effort slows growth.</p>
+    </div>
+
+    <div class="approach-card">
+      <div class="step-num mono">02</div>
+      <h3>Strategy</h3>
+      <p>We design your automation workflows, lead scoring model, lifecycle stages, and CRM architecture around how your customers actually buy.</p>
+    </div>
+
+    <div class="approach-card">
+      <div class="step-num mono">03</div>
+      <h3>Build &amp; Integrate</h3>
+      <p>We configure your CRM, connect your marketing channels, build automations, and test every workflow to ensure everything runs seamlessly.</p>
+    </div>
+
+    <div class="approach-card">
+      <div class="step-num mono">04</div>
+      <h3>Measure &amp; Optimise</h3>
+      <p>We monitor conversions, lead quality, and workflow performance, refining the system so it becomes more effective over time.</p>
+    </div>
+
+  </div>
+
+</section>
+
+  <section id="case-study" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">Featured Case Study</div>
+      <h2>More pipeline, less manual work.</h2>
+    </div>
+    <div class="case-study">
+      <div class="stat-list">
+        <div class="stat-row"><b>[+X%]</b><span>lead-to-customer conversion — [Client / sector]</span></div>
+        <div class="stat-row"><b>[X hours]</b><span>a week reclaimed from manual follow-up — [Client]</span></div>
+        <div class="stat-row"><b>[+X%]</b><span>of pipeline generated by nurtured leads — [Client]</span></div>
+      </div>
+      <div class="mini-case">
+        We built [Client] a full nurture programme with lead scoring and proper CRM integration. Sales stopped chasing cold prospects, lead-to-customer conversion rose [X%], and the team reclaimed [X] hours a week previously lost to manual follow-up.
+      </div>
+    </div>
+    <p style="margin-top:18px;"><a href="#" class="mono" style="font-size:13.5px; font-weight:600; color:var(--orange-bright);">Read the full case study →</a></p>
+  </section>
+
+  <section id="insights" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">Insights</div>
+    </div>
+    <div class="insights-grid">
+      <div class="insight-card">
+        <span class="cat">Lead Scoring</span>
+        <h3>Building a scoring model sales actually trusts</h3>
+        <p>Why most lead scores get ignored, and what makes one credible.</p>
+        <span class="read">Read more →</span>
+      </div>
+      <div class="insight-card">
+        <span class="cat">Nurture</span>
+        <h3>The nurture sequences that don't feel automated</h3>
+        <p>Pacing and content choices that keep workflows feeling human.</p>
+        <span class="read">Read more →</span>
+      </div>
+      <div class="insight-card">
+        <span class="cat">CRM</span>
+        <h3>Why sales and marketing see different numbers</h3>
+        <p>The data hygiene issues quietly breaking your reporting.</p>
+        <span class="read">Read more →</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="why-us" class="wrap section-divider">
+    <div class="section-head centered">
+      <div class="eyebrow">Why DashMindsIQ</div>
+      <h2>Automation built to scale, not to patch.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <h3>Systems, not band-aids</h3>
+        <p>Built properly the first time, so they hold as you grow rather than breaking under volume.</p>
+      </div>
+      <div class="why-card">
+        <h3>Real engineering depth</h3>
+        <p>Proper integrations and clean data architecture, backed by the technical team at DashMindsIQ.</p>
+      </div>
+      <div class="why-card">
+        <h3>Sales and marketing aligned</h3>
+        <p>One source of truth, one definition of a good lead, one shared goal.</p>
+      </div>
+    </div>
+
+    <div class="cta-strip" style="margin-top:36px;">
+      <p><em>See how many leads you're losing to manual follow-up.</em> Get a free audit of your funnel and automation. We'll show you where leads go cold and which workflows would recover them — no obligation.</p>
+      <a href="#cta" class="btn btn-primary">Get your free audit →</a>
+    </div>
+  </section>
+
+  <section id="faq" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">FAQ</div>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Do we need a CRM in place before we start?</summary>
+        <div class="faq-a">Not necessarily. We can help you select and implement the right one, or work with what you already have and make it perform.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Doesn't automation make marketing feel impersonal?</summary>
+        <div class="faq-a">Done badly, yes. Done well, it's the opposite — the right message reaching the right person at the right moment. Good automation feels timely, not robotic.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How long does setup take?</summary>
+        <div class="faq-a">Typically four to eight weeks depending on complexity and the number of integrations. We'll scope it precisely in the audit.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Will this replace our sales team?</summary>
+        <div class="faq-a">No — it makes them significantly more effective, by handing them warmer, better-qualified, better-prioritised leads.</div>
+      </details>
+    </div>
+  </section>
+
+  <section id="cta" class="wrap">
+    <div class="closing">
+      <p>Ready when you are — <a href="mailto:hello@dashmindsiq.com">Get your free audit</a>.</p>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>© 2026 DashmindsIQ Digital Marketing. All rights reserved.</span>
+    <span>Privacy Policy · Terms & Conditions</span>
+  </footer>
+
+</main>
+
+<script src="navbar.js" defer></script>
+
+</body>
+</html>

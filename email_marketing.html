@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Marketing That Drives Revenue | DashMindsIQ</title>
+<meta name="description" content="Email marketing that converts. Campaigns, flows, and segmentation that turn your list into a reliable, owned revenue channel you fully control.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="navbar.css">
+<style>
+  :root{
+    --bg:#0F0B08;
+    --bg-2:#1A130D;
+    --bg-3:#251A10;
+    --text:#FBF4EC;
+    --text-dim:#B0A192;
+    --orange:#F97316;
+    --orange-bright:#FB923C;
+    --orange-pale:#FDBA74;
+    --orange-deep:#9A3412;
+    --yellow:#FACC15;
+    --line:rgba(255,255,255,.12);
+    --line-soft:rgba(255,255,255,.07);
+    --glass-bg:rgba(255,255,255,.06);
+    --glass-border:rgba(255,255,255,.14);
+    --header-bg:rgba(15,11,8,.75);
+    --grid-line:rgba(255,255,255,.05);
+    --hero-mid:#241708;
+    --noise-opacity:.4;
+    --shadow-1:rgba(0,0,0,.35);
+    --dropdown-bg:rgba(20,14,9,.99);
+  }
+  :root[data-theme="light"]{
+    --bg:#FFFFFF;
+    --bg-2:#FDF8F2;
+    --bg-3:#FBEFDD;
+    --text:#231A10;
+    --text-dim:#786757;
+    --orange:#EA580C;
+    --orange-bright:#EA580C;
+    --orange-pale:#C2410C;
+    --orange-deep:#9A3412;
+    --yellow:#CA8A04;
+    --line:rgba(35,26,16,.12);
+    --line-soft:rgba(35,26,16,.07);
+    --glass-bg:rgba(234,88,12,.05);
+    --glass-border:rgba(234,88,12,.16);
+    --header-bg:rgba(255,255,255,.78);
+    --grid-line:rgba(35,26,16,.05);
+    --hero-mid:#FCEBD5;
+    --noise-opacity:.12;
+    --shadow-1:rgba(154,52,18,.14);
+    --dropdown-bg:rgba(253,249,244,.99);
+  }
+  [data-theme]{ transition:background-color .3s ease, color .3s ease; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  a{text-decoration:none; color:inherit;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; letter-spacing:-0.01em; font-weight:600;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-bright); font-weight:500; display:flex; align-items:center; gap:8px;}
+  .eyebrow::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--yellow);}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:100px; font-weight:600; font-size:14px; cursor:pointer; border:none; transition:transform .18s ease, box-shadow .18s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--orange); color:#FFFFFF; box-shadow:0 6px 20px rgba(249,115,22,.35);}
+  .btn-primary:hover{background:var(--orange-bright); box-shadow:0 10px 28px rgba(249,115,22,.5);}
+  .btn-ghost{background:var(--orange); border:1px solid var(--orange); color:#FFFFFF;}
+  .btn-ghost:hover{border-color:var(--orange-bright); background:var(--orange-bright);}
+  .wrap{max-width:1080px; margin:0 auto; padding:40px 32px;}
+  section{padding-top:50px; padding-bottom:50px;}
+  .section-divider{border-top:1px solid var(--line-soft);}
+
+  /* ===== HERO ===== */
+  .hero-bg{position:relative; min-height:520px; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:60px 24px;}
+  .hero-bg::before{
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 18% 22%, rgba(249,115,22,.5), transparent 42%),
+      radial-gradient(circle at 82% 78%, rgba(154,52,18,.55), transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(250,204,21,.26), transparent 35%),
+      linear-gradient(160deg, var(--bg) 0%, var(--hero-mid) 50%, var(--bg) 100%);
+    filter:blur(2px);
+  }
+  .hero-bg .grid-overlay{
+    position:absolute; inset:0;
+    background-image:linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size:44px 44px;
+    mask-image:radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+  .hero-bg .noise{position:absolute; inset:0; opacity:var(--noise-opacity); mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  }
+  .glass-card{
+    position:relative; z-index:2; max-width:640px; text-align:center;
+    background:var(--glass-bg);
+    border:1px solid var(--glass-border);
+    border-radius:28px; padding:56px 46px;
+    backdrop-filter:blur(22px) saturate(150%);
+    -webkit-backdrop-filter:blur(22px) saturate(150%);
+    box-shadow:0 8px 42px rgba(249,115,22,.18), inset 0 1px 0 var(--glass-border);
+  }
+  .glass-card .eyebrow{justify-content:center;}
+  .glass-card h1{font-size:44px; line-height:1.08; margin:18px 0 18px;}
+  .glass-card p.lead{font-size:15.5px; color:var(--text-dim); line-height:1.6; margin-bottom:28px;}
+  .hero-actions{display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap;}
+
+  /* ===== SECTION HEAD ===== */
+  .section-head{max-width:620px; margin-bottom:36px;}
+  .section-head h2{font-size:30px; margin-top:12px;}
+  .section-head p{color:var(--text-dim); margin-top:10px; font-size:14.5px; line-height:1.65;}
+  .section-head.centered{margin-left:auto; margin-right:auto; text-align:center;}
+  .section-head.centered .eyebrow{justify-content:center;}
+
+  /* ===== PROBLEM ===== */
+  .problem-text{font-size:15px; color:var(--text-dim); line-height:1.75; max-width:820px;}
+  .problem-text + .problem-text{margin-top:14px;}
+
+  /* ===== WHAT WE DO — card grid ===== */
+  .offer-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
+  .offer-card{border:1px solid var(--line); border-radius:16px; padding:22px 24px; background:var(--bg-2); transition:transform .2s, border-color .2s;}
+  .offer-card:hover{transform:translateY(-3px); border-color:var(--orange-bright);}
+  .offer-card h3{font-size:16px; color:var(--orange-bright); margin-bottom:8px;}
+  .offer-card p{font-size:13.5px; color:var(--text-dim); line-height:1.55;}
+
+  /* ===== HOW WE WORK ===== */
+
+.approach-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  align-items:stretch;
+}
+
+.approach-card{
+  position:relative;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:var(--bg-2);
+  padding:26px 22px;
+  transition:transform .2s ease,border-color .2s ease;
+}
+
+.approach-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--orange-bright);
+}
+
+.approach-card .step-num{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:34px;
+  font-weight:700;
+  line-height:1;
+  color:var(--orange-bright);
+  margin-bottom:14px;
+}
+
+.approach-card h3{
+  font-size:15.5px;
+  margin-bottom:8px;
+}
+
+.approach-card p{
+  font-size:13px;
+  color:var(--text-dim);
+  line-height:1.55;
+}
+
+
+
+@media(max-width:900px){
+  .approach-grid{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .approach-card::after{
+    content:none;
+  }
+}
+
+  /* ===== CASE STUDY ===== */
+  .case-study{border:1px solid var(--line); border-radius:22px; background:var(--bg-2); padding:40px; display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:start;}
+  .stat-list{display:flex; flex-direction:column; gap:16px; margin-bottom:20px;}
+  .stat-row{display:flex; align-items:baseline; gap:10px; border-bottom:1px dashed var(--line-soft); padding-bottom:14px;}
+  .stat-row b{font-family:'Space Grotesk',sans-serif; font-size:22px; color:var(--orange-bright); white-space:nowrap;}
+  .stat-row span{font-size:13px; color:var(--text-dim);}
+  .mini-case{font-size:13.5px; color:var(--text-dim); font-style:italic; line-height:1.65; padding:18px; border-left:2px solid var(--orange-bright); background:var(--bg-3); border-radius:0 12px 12px 0; margin-bottom:16px;}
+  .case-link{display:inline-block; font-size:13.5px; font-weight:600; color:var(--orange-bright);}
+
+  /* ===== INSIGHTS ===== */
+  .insights-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .insight-card{border:1px solid var(--line); border-radius:16px; padding:22px; background:var(--bg-2); transition:transform .2s, border-color .2s;}
+  .insight-card:hover{transform:translateY(-3px); border-color:var(--orange-bright);}
+  .insight-card .cat{font-family:'IBM Plex Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--orange-bright);}
+  .insight-card h3{font-size:16px; margin:10px 0 8px;}
+  .insight-card p{font-size:13px; color:var(--text-dim); line-height:1.55; margin-bottom:14px;}
+  .insight-card .read{font-size:12.5px; font-weight:600; color:var(--orange-bright);}
+
+  /* ===== WHY US ===== */
+  .why-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .why-card{border:1px solid var(--line); border-radius:18px; padding:26px; background:var(--bg-2); transition:transform .2s, border-color .2s;}
+  .why-card:hover{transform:translateY(-3px); border-color:var(--orange-bright);}
+  .why-card h3{font-size:16.5px; margin-bottom:8px; color:var(--orange-bright);}
+  .why-card p{font-size:13.5px; color:var(--text-dim); line-height:1.55;}
+
+  /* ===== FAQ — native accordion ===== */
+  .faq-list{display:flex; flex-direction:column; gap:10px; max-width:820px;}
+  .faq-item{border:1px solid var(--line); border-radius:14px; background:var(--bg-2); overflow:hidden;}
+  .faq-item summary{list-style:none; cursor:pointer; padding:18px 22px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:'+'; font-family:'IBM Plex Mono',monospace; font-size:18px; color:var(--orange-bright); transition:transform .2s ease; flex-shrink:0;}
+  .faq-item[open] summary::after{transform:rotate(45deg);}
+  .faq-item .faq-a{padding:0 22px 20px; font-size:13.5px; color:var(--text-dim); line-height:1.65;}
+
+  /* ===== CTA banner ===== */
+  .cta-banner{background:linear-gradient(135deg, var(--orange-deep), var(--orange)); border-radius:24px; padding:44px 40px; position:relative; overflow:hidden; box-shadow:0 20px 50px rgba(154,52,18,.35);}
+  .cta-banner::after{content:''; position:absolute; top:-40%; right:-8%; width:220px; height:220px; background:rgba(255,255,255,.14); transform:rotate(20deg); border-radius:30%;}
+  .cta-banner h3{font-size:26px; margin:6px 0 4px; position:relative; color:#fff;}
+  .cta-banner p{font-size:14px; color:rgba(255,255,255,.75); position:relative; margin-bottom:20px; max-width:440px;}
+  .cta-banner .eyebrow{color:#fff;}
+  .cta-banner .eyebrow::before{background:#fff;}
+
+  footer{border-top:1px solid var(--line-soft); padding:36px 0; display:flex; justify-content:space-between; font-size:12.5px; color:var(--text-dim); flex-wrap:wrap; gap:10px;}
+
+  /* ===== FLOATING AUDIT BUTTON ===== */
+  .float-audit{
+    position:fixed; bottom:26px; right:26px;
+    display:inline-flex; align-items:center; gap:9px;
+    padding:15px 26px; border-radius:100px; z-index:80;
+    background:linear-gradient(135deg,var(--orange),var(--yellow)); color:#1A1105;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px;
+    box-shadow:0 10px 30px rgba(249,115,22,.45), inset 0 1px 0 rgba(255,255,255,.25);
+    border:1px solid rgba(255,255,255,.15);
+    transition:transform .2s ease, box-shadow .2s ease;
+    animation:audit-pop .5s cubic-bezier(.34,1.56,.64,1) .3s both;
+  }
+  .float-audit:hover{transform:translateY(-3px); box-shadow:0 16px 38px rgba(249,115,22,.55);}
+  .float-audit .dot-live{width:7px; height:7px; border-radius:50%; background:#1A1105; animation:pulse 1.6s infinite;}
+  @keyframes audit-pop{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+  @media(max-width:640px){
+    .float-audit{bottom:18px; right:18px; padding:13px 20px; font-size:13.5px;}
+  }
+
+  @media(max-width:900px){
+    .offer-grid{grid-template-columns:1fr;}
+    .insights-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    .case-study{grid-template-columns:1fr;}
+    .glass-card h1{font-size:32px;}
+    .glass-card{padding:36px 24px;}
+    section{padding:60px 0;}
+  }
+</style>
+</head>
+<body>
+
+<a href="#cta" class="float-audit">
+  <span class="dot-live"></span>
+  Get your free audit
+</a>
+
+<div id="navbar-placeholder"></div>
+
+<main id="top">
+
+  <div class="hero-bg">
+    <div class="grid-overlay"></div>
+    <div class="noise"></div>
+    <div class="glass-card">
+      <div class="eyebrow">Email Marketing</div>
+      <h1>Email marketing that turns your list into revenue</h1>
+      <p class="lead">Email is the one channel you actually own. We build the campaigns, automations, and segmentation that turn subscribers into repeat customers — and make email one of your highest-returning channels.</p>
+      <div class="hero-actions">
+        <a href="#cta" class="btn btn-primary">See your email opportunities →</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="problem" class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The Problem</div>
+      <h2>Your list is an asset you're almost certainly under-using.</h2>
+    </div>
+    <p class="problem-text">Most brands send the occasional newsletter to everyone on the list, hope for the best, and watch open rates quietly decline. There's no segmentation, no automation, and no clear link between sending and selling.</p>
+    <p class="problem-text">Yet email consistently delivers one of the strongest returns of any marketing channel — but only when the right message reaches the right person at the right moment. An unsegmented blast to a cold list isn't email marketing. It's noise, and your audience treats it accordingly.</p>
+  </section>
+
+  <section id="what-we-do" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">What We Do</div>
+      <h2>Email people actually open — and act on.</h2>
+      <p>From one-off campaigns to always-on automation, we build the programme that makes your list earn.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <h3>Campaign strategy &amp; design</h3>
+        <p>Newsletters and promotions worth opening, designed on-brand and built for mobile where most email is read.</p>
+      </div>
+      <div class="offer-card">
+        <h3>Automated flows</h3>
+        <p>Welcome, abandoned cart, nurture, win-back, and post-purchase sequences that generate revenue continuously, without manual effort.</p>
+      </div>
+      <div class="offer-card">
+        <h3>Segmentation &amp; personalisation</h3>
+        <p>The right message to the right person, based on behaviour, interests, and lifecycle stage.</p>
+      </div>
+      <div class="offer-card">
+        <h3>List growth &amp; health</h3>
+        <p>Ethical list building, plus cleaning and deliverability management so your emails reach the inbox rather than the spam folder.</p>
+      </div>
+      <div class="offer-card" style="grid-column:1/-1;">
+        <h3>Testing &amp; optimisation</h3>
+        <p>Continuous testing of subject lines, send times, offers, and creative to lift performance month on month.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach" class="wrap section-divider">
+
+  <div class="section-head">
+    <div class="eyebrow">Our Approach</div>
+    <h2>From occasional newsletter to reliable revenue channel.</h2>
+  </div>
+
+  <div class="approach-grid">
+
+    <div class="approach-card">
+      <div class="step-num mono">01</div>
+      <h3>Audit</h3>
+      <p>We review your list health, deliverability, automations, campaigns, and performance to identify the biggest revenue opportunities.</p>
+    </div>
+
+    <div class="approach-card">
+      <div class="step-num mono">02</div>
+      <h3>Strategy</h3>
+      <p>We map the campaigns, automated flows, segmentation, and messaging that will generate the greatest impact for your business.</p>
+    </div>
+
+    <div class="approach-card">
+      <div class="step-num mono">03</div>
+      <h3>Build &amp; Launch</h3>
+      <p>We write, design, build, test, and launch campaigns and automations that deliver a seamless customer experience.</p>
+    </div>
+
+    <div class="approach-card">
+      <div class="step-num mono">04</div>
+      <h3>Measure &amp; Optimise</h3>
+      <p>We monitor engagement, conversions, and revenue, continually refining campaigns to improve performance over time.</p>
+    </div>
+
+  </div>
+
+</section>
+
+  <section id="case-study" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">Featured Case Study</div>
+      <h2>Revenue, not just open rates.</h2>
+    </div>
+    <div class="case-study">
+      <div>
+        <div class="stat-list">
+          <div class="stat-row"><b>[X%]</b><span>of total revenue driven by email — [Client / sector]</span></div>
+          <div class="stat-row"><b>[+X%]</b><span>open rate after segmentation — [Client]</span></div>
+          <div class="stat-row"><b>[AED X]</b><span>generated by automated flows alone — [Client]</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="mini-case">
+          We rebuilt [Client]'s email programme from a single monthly blast into segmented campaigns plus [X] automated flows covering welcome, cart recovery, and win-back. Email grew from [X%] to [Y%] of total revenue within [months] — with the flows earning continuously in the background.
+        </div>
+        <a href="#" class="case-link">Read the full case study →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="insights" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">Insights</div>
+      <h2>Notes from the email desk.</h2>
+      <p>Short reads on flows, segmentation, and getting more revenue out of the list you already have.</p>
+    </div>
+    <div class="insights-grid">
+      <div class="insight-card">
+        <span class="cat">Automation</span>
+        <h3>The five flows every list should have</h3>
+        <p>Welcome, cart recovery, and the other sequences that earn while you sleep.</p>
+        <span class="read">Read more →</span>
+      </div>
+      <div class="insight-card">
+        <span class="cat">Segmentation</span>
+        <h3>Why "batch and blast" is quietly killing your list</h3>
+        <p>How unsegmented sending trains subscribers to stop opening — and how to reverse it.</p>
+        <span class="read">Read more →</span>
+      </div>
+      <div class="insight-card">
+        <span class="cat">Deliverability</span>
+        <h3>Getting out of the promotions tab</h3>
+        <p>The list hygiene and sending habits that keep you in the inbox, not the spam folder.</p>
+        <span class="read">Read more →</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="why-us" class="wrap section-divider">
+    <div class="section-head centered">
+      <div class="eyebrow">Why DashMindsIQ</div>
+      <h2>The channel you own, run properly.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <h3>No algorithm, no rising ad costs</h3>
+        <p>Unlike social or paid, your list is yours. Nobody can throttle your reach or raise your price.</p>
+      </div>
+      <div class="why-card">
+        <h3>Automation that compounds</h3>
+        <p>Flows built once keep earning indefinitely, working while your team sleeps.</p>
+      </div>
+      <div class="why-card">
+        <h3>Measured in revenue</h3>
+        <p>We report revenue-per-email and return on the programme, not just opens and clicks.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2>Questions, answered.</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>My list is small — is email still worth it?</summary>
+        <div class="faq-a">Yes. A small, engaged list routinely outperforms a large, cold one. We'll help you grow it ethically while making far more of the subscribers you already have.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Which email platform do you work with?</summary>
+        <div class="faq-a">Most major platforms — Klaviyo, Mailchimp, HubSpot, and others. We'll recommend what genuinely fits your business rather than forcing a migration you don't need.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How often should we email?</summary>
+        <div class="faq-a">Often enough to stay present, not so often you're ignored. The right cadence depends on your audience, offer, and lifecycle stage — we'll define it in the audit.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Will you write and design the emails?</summary>
+        <div class="faq-a">Yes — strategy, copy, design, build, and send. You approve; we ship.</div>
+      </details>
+    </div>
+  </section>
+
+  <section id="cta" class="wrap">
+    <div class="cta-banner">
+      <div class="eyebrow">See what your email list could really be earning.</div>
+      <h3>Get a free audit of your email programme.</h3>
+      <p>We'll show you the flows you're missing, the segments you're ignoring, and the revenue you're leaving behind — no obligation.</p>
+      <a href="mailto:hello@dashmindsiq.com" class="btn btn-ghost" style="background:#fff; color:var(--orange-deep);">Get your free audit →</a>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>© 2026 DashmindsIQ Digital Marketing. All rights reserved.</span>
+    <span>Privacy Policy · Terms &amp; Conditions</span>
+  </footer>
+
+</main>
+
+<script src="navbar.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry Marketing Expertise | DashMindsIQ Marketing</title>
+<meta name="description" content="Marketing built for your sector. From SaaS and fintech to retail, healthcare and real estate — proven playbooks tuned to how your customers actually buy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="navbar.css">
+<style>
+  :root{
+    --bg:#0F0B08;
+    --bg-2:#1A130D;
+    --bg-3:#251A10;
+    --text:#FBF4EC;
+    --text-dim:#B0A192;
+    --orange:#F97316;
+    --orange-bright:#FB923C;
+    --orange-pale:#FDBA74;
+    --orange-deep:#9A3412;
+    --yellow:#FACC15;
+    --line:rgba(255,255,255,.12);
+    --line-soft:rgba(255,255,255,.07);
+    --glass-bg:rgba(255,255,255,.06);
+    --glass-border:rgba(255,255,255,.14);
+    --header-bg:rgba(15,11,8,.75);
+    --grid-line:rgba(255,255,255,.05);
+    --hero-mid:#241708;
+    --noise-opacity:.4;
+    --shadow-1:rgba(0,0,0,.35);
+    --dropdown-bg:rgba(20,14,9,.99);
+  }
+  :root[data-theme="light"]{
+    --bg:#FFFFFF;
+    --bg-2:#FDF8F2;
+    --bg-3:#FBEFDD;
+    --text:#231A10;
+    --text-dim:#786757;
+    --orange:#EA580C;
+    --orange-bright:#EA580C;
+    --orange-pale:#C2410C;
+    --orange-deep:#9A3412;
+    --yellow:#CA8A04;
+    --line:rgba(35,26,16,.12);
+    --line-soft:rgba(35,26,16,.07);
+    --glass-bg:rgba(234,88,12,.05);
+    --glass-border:rgba(234,88,12,.16);
+    --header-bg:rgba(255,255,255,.78);
+    --grid-line:rgba(35,26,16,.05);
+    --hero-mid:#FCEBD5;
+    --noise-opacity:.12;
+    --shadow-1:rgba(154,52,18,.14);
+    --dropdown-bg:rgba(253,249,244,.99);
+  }
+  [data-theme]{ transition:background-color .3s ease, color .3s ease; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  a{text-decoration:none; color:inherit;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; letter-spacing:-0.01em; font-weight:600;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-bright); font-weight:500; display:flex; align-items:center; gap:8px;}
+  .eyebrow::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--yellow);}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:100px; font-weight:600; font-size:14px; cursor:pointer; border:none; transition:transform .18s ease, box-shadow .18s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--orange); color:#FFFFFF; box-shadow:0 6px 20px rgba(249,115,22,.35);}
+  .btn-primary:hover{background:var(--orange-bright); box-shadow:0 10px 28px rgba(249,115,22,.5);}
+  .btn-ghost{background:var(--orange); border:1px solid var(--orange); color:#FFFFFF;}
+  .btn-ghost:hover{border-color:var(--orange-bright); background:var(--orange-bright);}
+  .wrap{max-width:1080px; margin:0 auto; padding:40px 32px;}
+  section{padding-top:50px; padding-bottom:50px;}
+  .section-divider{border-top:1px solid var(--line-soft);}
+
+  /* ===== HERO ===== */
+  .hero-bg{position:relative; min-height:520px; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:60px 24px;}
+  .hero-bg::before{
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 18% 22%, rgba(249,115,22,.5), transparent 42%),
+      radial-gradient(circle at 82% 78%, rgba(154,52,18,.55), transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(250,204,21,.26), transparent 35%),
+      linear-gradient(160deg, var(--bg) 0%, var(--hero-mid) 50%, var(--bg) 100%);
+    filter:blur(2px);
+  }
+  .hero-bg .grid-overlay{
+    position:absolute; inset:0;
+    background-image:linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size:44px 44px;
+    mask-image:radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+  .hero-bg .noise{position:absolute; inset:0; opacity:var(--noise-opacity); mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  }
+  .glass-card{
+    position:relative; z-index:2; max-width:640px; text-align:center;
+    background:var(--glass-bg);
+    border:1px solid var(--glass-border);
+    border-radius:28px; padding:56px 46px;
+    backdrop-filter:blur(22px) saturate(150%);
+    -webkit-backdrop-filter:blur(22px) saturate(150%);
+    box-shadow:0 8px 42px rgba(249,115,22,.18), inset 0 1px 0 var(--glass-border);
+  }
+  .glass-card .eyebrow{justify-content:center;}
+  .glass-card h1{font-size:44px; line-height:1.08; margin:18px 0 18px;}
+  .glass-card p.lead{font-size:15.5px; color:var(--text-dim); line-height:1.6; margin-bottom:28px;}
+  .hero-actions{display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap;}
+
+  /* ===== SECTION HEAD ===== */
+  .section-head{max-width:620px; margin-bottom:32px;}
+  .section-head h2{font-size:28px; margin-top:10px;}
+  .section-head.centered{margin-left:auto; margin-right:auto; text-align:center;}
+  .section-head.centered .eyebrow{justify-content:center;}
+
+  /* ===== PROBLEM ===== */
+  .problem-text{font-size:15px; color:var(--text-dim); line-height:1.75; max-width:820px;}
+  .problem-text em{color:var(--orange-pale); font-style:normal; font-weight:600;}
+
+  /* ===== WHAT WE DO — simple list ===== */
+  .offer-list{display:flex; flex-direction:column; gap:0; max-width:820px;}
+  .offer-row{display:flex; gap:14px; padding:16px 0; border-bottom:1px solid var(--line-soft);}
+  .offer-row:last-child{border-bottom:none;}
+  .offer-row .dash{color:var(--orange-bright); font-weight:700; flex-shrink:0;}
+  .offer-row b{font-size:14.5px;}
+  .offer-row span{font-size:14px; color:var(--text-dim); line-height:1.6;}
+
+  /* ===== PROCESS — zigzag ===== */
+  .zigzag{position:relative; margin-top:20px;}
+  .zigzag::before{content:''; position:absolute; left:50%; top:0; bottom:0; width:1px; background:var(--line); transform:translateX(-50%);}
+  .zstep{display:grid; grid-template-columns:1fr 40px 1fr; align-items:center; margin-bottom:8px;}
+  .zstep .n{grid-column:2; width:40px; height:40px; border-radius:50%; background:var(--bg-2); border:1.5px solid var(--orange-bright); color:var(--orange-bright); display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:12.5px; z-index:1;}
+  .zstep .txt{padding:18px 28px;}
+  .zstep .txt h3{font-size:16px; margin-bottom:4px;}
+  .zstep .txt p{font-size:13px; color:var(--text-dim); line-height:1.5;}
+  .zstep:nth-child(odd) .txt{grid-column:1; text-align:right;}
+  .zstep:nth-child(even) .txt{grid-column:3; text-align:left;}
+
+  /* ===== CASE STUDY ===== */
+  .case-study{border:1px solid var(--line); border-radius:22px; background:var(--bg-2); padding:40px; display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:start;}
+  .stat-list{display:flex; flex-direction:column; gap:16px;}
+  .stat-row{display:flex; align-items:baseline; gap:10px; border-bottom:1px dashed var(--line-soft); padding-bottom:14px;}
+  .stat-row b{font-family:'Space Grotesk',sans-serif; font-size:22px; color:var(--orange-bright); white-space:nowrap;}
+  .stat-row span{font-size:13px; color:var(--text-dim);}
+  .mini-case{font-size:13.5px; color:var(--text-dim); font-style:italic; line-height:1.65; padding:18px; border-left:2px solid var(--orange-bright); background:var(--bg-3); border-radius:0 12px 12px 0;}
+
+  /* ===== INSIGHTS ===== */
+  .insights-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .insight-card{border:1px solid var(--line); border-radius:16px; padding:22px; background:var(--bg-2); transition:transform .2s, border-color .2s;}
+  .insight-card:hover{transform:translateY(-3px); border-color:var(--orange-bright);}
+  .insight-card .cat{font-family:'IBM Plex Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--orange-bright);}
+  .insight-card h3{font-size:16px; margin:10px 0 8px;}
+  .insight-card p{font-size:13px; color:var(--text-dim); line-height:1.55; margin-bottom:14px;}
+  .insight-card .read{font-size:12.5px; font-weight:600; color:var(--orange-bright);}
+
+  /* ===== WHY US ===== */
+  .why-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .why-card{border:1px solid var(--line); border-radius:18px; padding:26px; background:var(--bg-2); transition:transform .2s, border-color .2s;}
+  .why-card:hover{transform:translateY(-3px); border-color:var(--orange-bright);}
+  .why-card h3{font-size:16.5px; margin-bottom:8px; color:var(--orange-bright);}
+  .why-card p{font-size:13.5px; color:var(--text-dim); line-height:1.55;}
+
+  /* ===== CTA STRIP (inline) ===== */
+  .cta-strip{
+    display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+    border:1px solid rgba(249,115,22,.35); border-radius:18px;
+    background:linear-gradient(120deg, rgba(249,115,22,.14), rgba(154,52,18,.16));
+    padding:26px 30px;
+  }
+  .cta-strip p{font-size:14.5px; color:var(--text); line-height:1.55; max-width:560px;}
+  .cta-strip p em{color:var(--orange-pale); font-style:normal; font-weight:600;}
+
+  /* ===== FAQ — native accordion ===== */
+  .faq-list{display:flex; flex-direction:column; gap:10px; max-width:820px;}
+  .faq-item{border:1px solid var(--line); border-radius:14px; background:var(--bg-2); overflow:hidden;}
+  .faq-item summary{list-style:none; cursor:pointer; padding:18px 22px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:'+'; font-family:'IBM Plex Mono',monospace; font-size:18px; color:var(--orange-bright); transition:transform .2s ease; flex-shrink:0;}
+  .faq-item[open] summary::after{transform:rotate(45deg);}
+  .faq-item .faq-a{padding:0 22px 20px; font-size:13.5px; color:var(--text-dim); line-height:1.65;}
+
+  /* ===== CLOSING ===== */
+  .closing{text-align:center; padding:30px 0 0;}
+  .closing p{font-size:15px; color:var(--text-dim);}
+  .closing a{color:var(--orange-bright); font-weight:600;}
+
+  footer{border-top:1px solid var(--line-soft); padding:36px 0; display:flex; justify-content:space-between; font-size:12.5px; color:var(--text-dim); flex-wrap:wrap; gap:10px;}
+
+  /* ===== FLOATING AUDIT BUTTON ===== */
+  .float-audit{
+    position:fixed; bottom:26px; right:26px;
+    display:inline-flex; align-items:center; gap:9px;
+    padding:15px 26px; border-radius:100px; z-index:80;
+    background:linear-gradient(135deg,var(--orange),var(--yellow)); color:#1A1105;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px;
+    box-shadow:0 10px 30px rgba(249,115,22,.45), inset 0 1px 0 rgba(255,255,255,.25);
+    border:1px solid rgba(255,255,255,.15);
+    transition:transform .2s ease, box-shadow .2s ease;
+    animation:audit-pop .5s cubic-bezier(.34,1.56,.64,1) .3s both;
+  }
+  .float-audit:hover{transform:translateY(-3px); box-shadow:0 16px 38px rgba(249,115,22,.55);}
+  .float-audit .dot-live{width:7px; height:7px; border-radius:50%; background:#1A1105; animation:pulse 1.6s infinite;}
+  @keyframes audit-pop{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+  @media(max-width:640px){
+    .float-audit{bottom:18px; right:18px; padding:13px 20px; font-size:13.5px;}
+  }
+
+  /* ===== INDUSTRIES GRID ===== */
+  .industries-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .industry-card{border:1px solid var(--line); border-radius:16px; padding:22px; background:var(--bg-2); transition:transform .2s, border-color .2s;}
+  .industry-card:hover{transform:translateY(-3px); border-color:var(--orange-bright);}
+  .industry-card h3{font-size:15.5px; margin-bottom:8px;}
+  .industry-card p{font-size:13px; color:var(--text-dim); line-height:1.55; margin-bottom:12px;}
+  .industry-card .explore{font-size:12.5px; font-weight:600; color:var(--orange-bright); font-style:italic;}
+  @media(max-width:900px){ .industries-grid{grid-template-columns:1fr;} }
+
+  /* ===== QUOTE ===== */
+  .client-quote{margin-top:22px; padding:22px 26px; border-left:2px solid var(--orange-bright); background:var(--bg-3); border-radius:0 12px 12px 0;}
+  .client-quote p{font-size:14.5px; font-style:italic; color:var(--text); line-height:1.6;}
+  .client-quote span{display:block; margin-top:10px; font-size:12.5px; color:var(--text-dim); font-style:normal;}
+
+  /* ===== STANDALONE CTA SECTION ===== */
+  .cta-full{
+    text-align:center; max-width:640px; margin:0 auto;
+    border:1px solid rgba(249,115,22,.35); border-radius:22px;
+    background:linear-gradient(120deg, rgba(249,115,22,.14), rgba(154,52,18,.16));
+    padding:46px 40px;
+  }
+  .cta-full h2{font-size:24px; margin-bottom:12px;}
+  .cta-full p{font-size:14.5px; color:var(--text-dim); line-height:1.6; margin-bottom:24px;}
+
+  @media(max-width:900px){
+    .insights-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    .case-study{grid-template-columns:1fr;}
+    .zstep{grid-template-columns:30px 1fr;}
+    .zstep .n{grid-column:1;}
+    .zstep:nth-child(odd) .txt, .zstep:nth-child(even) .txt{grid-column:2; text-align:left;}
+    .zigzag::before{left:15px;}
+    .glass-card h1{font-size:32px;}
+    .glass-card{padding:36px 24px;}
+    section{padding:60px 0;}
+  }
+</style>
+</head>
+<body>
+
+<a href="#cta" class="float-audit">
+  <span class="dot-live"></span>
+  Get your free audit
+</a>
+
+<div id="navbar-placeholder"></div>
+
+<main id="top">
+
+  <div class="hero-bg">
+    <div class="grid-overlay"></div>
+    <div class="noise"></div>
+    <div class="glass-card">
+      <div class="eyebrow">Industry Marketing</div>
+      <h1>Marketing shaped by the industry you're in</h1>
+      <p class="lead">A SaaS buyer researches for months. A retail shopper decides in seconds. Marketing that ignores the difference wastes your budget. We bring sector-specific playbooks to every engagement — so the strategy fits how your customers actually buy.</p>
+      <div class="hero-actions">
+        <a href="#industries" class="btn btn-primary">Find your industry →</a>
+        <a href="#cta" class="btn btn-ghost">Get your free audit</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="why-it-matters" class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Why Industry Matters</div>
+      <h2>Same channels. Completely different rules.</h2>
+    </div>
+    <p class="problem-text">Every sector has its own buying cycle, its own decision-makers, and its own constraints. A fintech brand navigates regulation and long trust-building cycles. An ecommerce brand lives or dies on conversion rate and repeat purchase. A healthcare provider markets under compliance rules that would sink a retail campaign.<br><br>The channels look the same from the outside — SEO, paid, social, email. What changes is everything underneath: the message, the timing, the metrics that matter, and what "good" looks like. That's the difference between marketing <em>at</em> your industry and marketing <em>within</em> it.</p>
+  </section>
+
+  <section id="industries" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">Industries We Work With</div>
+      <h2>Find your sector.</h2>
+    </div>
+    <p class="problem-text" style="margin-bottom:24px;">Each of these has its own playbook, built around how buyers in that market make decisions.</p>
+    <div class="industries-grid">
+      <div class="industry-card">
+        <h3>SaaS & Technology</h3>
+        <p>Long cycles, multiple stakeholders, and a crowded market. We build the content and demand generation that shortens the path to a demo.</p>
+        <span class="explore">Explore →</span>
+      </div>
+      <div class="industry-card">
+        <h3>Fintech & Financial Services</h3>
+        <p>Trust and compliance shape everything. We build the authority and credibility that turn regulated categories into an advantage.</p>
+        <span class="explore">Explore →</span>
+      </div>
+      <div class="industry-card">
+        <h3>Retail & Ecommerce</h3>
+        <p>Every click is measured in revenue. We optimise the full funnel from first ad to repeat purchase.</p>
+        <span class="explore">Explore →</span>
+      </div>
+      <div class="industry-card">
+        <h3>Healthcare</h3>
+        <p>Marketing under compliance, to patients and practitioners who need to trust you first.</p>
+        <span class="explore">Explore →</span>
+      </div>
+      <div class="industry-card">
+        <h3>Real Estate</h3>
+        <p>High-value, high-consideration purchases driven by visibility, timing, and local search.</p>
+        <span class="explore">Explore →</span>
+      </div>
+      <div class="industry-card">
+        <h3>Professional Services</h3>
+        <p>Reputation is the product. We build the authority and inbound pipeline that wins clients.</p>
+        <span class="explore">Explore →</span>
+      </div>
+      <div class="industry-card">
+        <h3>Education</h3>
+        <p>Long enrolment cycles and multiple decision-makers, from student to parent to institution.</p>
+        <span class="explore">Explore →</span>
+      </div>
+      <div class="industry-card">
+        <h3>Hospitality</h3>
+        <p>Seasonal, visual, and fiercely competitive. We drive bookings and build brands people remember.</p>
+        <span class="explore">Explore →</span>
+      </div>
+      <div class="industry-card">
+        <h3>Manufacturing</h3>
+        <p>Complex products, technical buyers, and long procurement. We make expertise findable and credible.</p>
+        <span class="explore">Explore →</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">Our Approach</div>
+      <h2>One proven process, tuned to your market.</h2>
+    </div>
+    <p class="problem-text" style="margin-bottom:24px;">Whatever your sector, the method is the same — what changes is what we look for and what we optimise toward.</p>
+    <div class="zigzag">
+      <div class="zstep"><div class="txt"><h3>01 · Audit</h3><p>We analyse your data, your competitors, and how buyers in your specific market behave.</p></div><div class="n">01</div><div></div></div>
+      <div class="zstep"><div></div><div class="n">02</div><div class="txt"><h3>02 · Strategy</h3><p>We build a prioritised roadmap shaped by your sector's buying cycle and the channels that work there.</p></div></div>
+      <div class="zstep"><div class="txt"><h3>03 · Execute</h3><p>Our specialists deliver the work, with messaging and creative that speaks your industry's language.</p></div><div class="n">03</div><div></div></div>
+      <div class="zstep"><div></div><div class="n">04</div><div class="txt"><h3>04 · Measure & refine</h3><p>We report against the metrics your market actually cares about, then sharpen from there.</p></div></div>
+    </div>
+  </section>
+
+  <section id="proof" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">Proof</div>
+      <h2>Results across sectors.</h2>
+    </div>
+    <div class="case-study">
+      <div class="stat-list">
+        <div class="stat-row"><b>[+312%]</b><span>organic traffic for a [financial media] client in [12 months]</span></div>
+        <div class="stat-row"><b>[4.1x]</b><span>return on ad spend for a [retail / ecommerce] brand</span></div>
+        <div class="stat-row"><b>[-38%]</b><span>cost per lead for a [B2B / SaaS] client</span></div>
+      </div>
+      <div class="client-quote">
+        <p>"They understood our market before they touched our marketing. That's the difference."</p>
+        <span>— [Name, Title, Company]</span>
+      </div>
+    </div>
+    <p style="margin-top:18px;"><a href="#" class="mono" style="font-size:13.5px; font-weight:600; color:var(--orange-bright);">See all case studies →</a></p>
+  </section>
+
+  <section id="insights" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">Insights</div>
+    </div>
+    <div class="insights-grid">
+      <div class="insight-card">
+        <span class="cat">Strategy</span>
+        <h3>Why a "best practice" from another sector can backfire</h3>
+        <p>What travels between industries, and what doesn't.</p>
+        <span class="read">Read more →</span>
+      </div>
+      <div class="insight-card">
+        <span class="cat">Regulated Industries</span>
+        <h3>Marketing under compliance without losing your voice</h3>
+        <p>How to stay bold within rules that constrain most brands into blandness.</p>
+        <span class="read">Read more →</span>
+      </div>
+      <div class="insight-card">
+        <span class="cat">Buying Cycles</span>
+        <h3>Matching your funnel to how your market actually decides</h3>
+        <p>Why a 90-day sales cycle needs a different funnel than a same-day purchase.</p>
+        <span class="read">Read more →</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="why-us" class="wrap section-divider">
+    <div class="section-head centered">
+      <div class="eyebrow">Why DashMindsIQ</div>
+      <h2>Sector knowledge, backed by engineering depth.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <h3>We learn your market first</h3>
+        <p>Every engagement starts with understanding how your buyers decide, not with a template.</p>
+      </div>
+      <div class="why-card">
+        <h3>Playbooks, not guesswork</h3>
+        <p>Proven approaches per sector, adapted to your specific position and data.</p>
+      </div>
+      <div class="why-card">
+        <h3>Backed by DashMindsIQ</h3>
+        <p>The technical depth of an engineering company behind every campaign we run.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta-band" class="wrap section-divider">
+    <div class="cta-full">
+      <h2>Not sure which playbook fits your business?</h2>
+      <p>Get a free audit of your marketing. We'll assess your market, your competitors, and your data — then show you exactly where the biggest opportunities are. No obligation.</p>
+      <a href="#cta" class="btn btn-primary">Get your free audit →</a>
+    </div>
+  </section>
+
+  <section id="faq" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">FAQ</div>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Do you only work with these industries?</summary>
+        <div class="faq-a">No — these are the sectors where we have the deepest playbooks, but our approach adapts to any market. If you don't see yours, get in touch; the audit will tell us quickly whether we're the right fit.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What if my business spans several industries?</summary>
+        <div class="faq-a">Many do. We'll build a strategy around your primary buyer and revenue driver, drawing on whichever playbooks apply. That's exactly the kind of thing the audit clarifies.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Does industry experience really matter in marketing?</summary>
+        <div class="faq-a">The channels are universal; the execution isn't. Knowing your sector's buying cycle, regulations, and language means less time learning and faster results — and it's the difference between a campaign that resonates and one that's ignored.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How do you build sector expertise?</summary>
+        <div class="faq-a">Through client work, market research, and by starting every engagement with a deep audit of your specific market and competitors — not by assuming last year's playbook still applies.</div>
+      </details>
+    </div>
+  </section>
+
+  <section id="cta" class="wrap">
+    <div class="closing">
+      <p>Ready when you are — <a href="mailto:hello@dashmindsiq.com">Get your free audit</a>.</p>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>© 2026 DashmindsIQ Digital Marketing. All rights reserved.</span>
+    <span>Privacy Policy · Terms & Conditions</span>
+  </footer>
+
+</main>
+
+<script src="navbar.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospitality Marketing Services | DashMindsIQ</title>
+<meta name="description" content="Marketing for hotels, restaurants, and travel brands. Drive direct bookings, cut commission costs, and build a brand guests choose deliberately.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="navbar.css">
+<style>
+  :root{
+    --bg:#0F0B08;
+    --bg-2:#1A130D;
+    --bg-3:#251A10;
+    --text:#FBF4EC;
+    --text-dim:#B0A192;
+    --orange:#F97316;
+    --orange-bright:#FB923C;
+    --orange-pale:#FDBA74;
+    --orange-deep:#9A3412;
+    --yellow:#FACC15;
+    --line:rgba(255,255,255,.12);
+    --line-soft:rgba(255,255,255,.07);
+    --glass-bg:rgba(255,255,255,.06);
+    --glass-border:rgba(255,255,255,.14);
+    --header-bg:rgba(15,11,8,.75);
+    --grid-line:rgba(255,255,255,.05);
+    --hero-mid:#241708;
+    --noise-opacity:.4;
+    --shadow-1:rgba(0,0,0,.35);
+    --dropdown-bg:rgba(20,14,9,.99);
+  }
+  :root[data-theme="light"]{
+    --bg:#FFFFFF;
+    --bg-2:#FDF8F2;
+    --bg-3:#FBEFDD;
+    --text:#231A10;
+    --text-dim:#786757;
+    --orange:#EA580C;
+    --orange-bright:#EA580C;
+    --orange-pale:#C2410C;
+    --orange-deep:#9A3412;
+    --yellow:#CA8A04;
+    --line:rgba(35,26,16,.12);
+    --line-soft:rgba(35,26,16,.07);
+    --glass-bg:rgba(234,88,12,.05);
+    --glass-border:rgba(234,88,12,.16);
+    --header-bg:rgba(255,255,255,.78);
+    --grid-line:rgba(35,26,16,.05);
+    --hero-mid:#FCEBD5;
+    --noise-opacity:.12;
+    --shadow-1:rgba(154,52,18,.14);
+    --dropdown-bg:rgba(253,249,244,.99);
+  }
+  [data-theme]{ transition:background-color .3s ease, color .3s ease; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  a{text-decoration:none; color:inherit;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; letter-spacing:-0.01em; font-weight:600;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-bright); font-weight:500; display:flex; align-items:center; gap:8px;}
+  .eyebrow::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--yellow);}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:100px; font-weight:600; font-size:14px; cursor:pointer; border:none; transition:transform .18s ease, box-shadow .18s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--orange); color:#FFFFFF; box-shadow:0 6px 20px rgba(249,115,22,.35);}
+  .btn-primary:hover{background:var(--orange-bright); box-shadow:0 10px 28px rgba(249,115,22,.5);}
+  .btn-ghost{background:var(--orange); border:1px solid var(--orange); color:#FFFFFF;}
+  .btn-ghost:hover{border-color:var(--orange-bright); background:var(--orange-bright);}
+  .wrap{max-width:1080px; margin:0 auto; padding:40px 32px;}
+  section{padding-top:50px; padding-bottom:50px;}
+  .section-divider{border-top:1px solid var(--line-soft);}
+
+  /* ===== HERO ===== */
+  .hero-bg{position:relative; min-height:520px; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:60px 24px;}
+  .hero-bg::before{
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 18% 22%, rgba(249,115,22,.5), transparent 42%),
+      radial-gradient(circle at 82% 78%, rgba(154,52,18,.55), transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(250,204,21,.26), transparent 35%),
+      linear-gradient(160deg, var(--bg) 0%, var(--hero-mid) 50%, var(--bg) 100%);
+    filter:blur(2px);
+  }
+  .hero-bg .grid-overlay{
+    position:absolute; inset:0;
+    background-image:linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size:44px 44px;
+    mask-image:radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+  .hero-bg .noise{position:absolute; inset:0; opacity:var(--noise-opacity); mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  }
+  .glass-card{
+    position:relative; z-index:2; max-width:680px; text-align:center;
+    background:var(--glass-bg);
+    border:1px solid var(--glass-border);
+    border-radius:28px; padding:56px 46px;
+    backdrop-filter:blur(22px) saturate(150%);
+    -webkit-backdrop-filter:blur(22px) saturate(150%);
+    box-shadow:0 8px 42px rgba(249,115,22,.18), inset 0 1px 0 var(--glass-border);
+  }
+  .glass-card .eyebrow{justify-content:center;}
+  .glass-card h1{font-size:42px; line-height:1.1; margin:18px 0 18px;}
+  .glass-card p.lead{font-size:15.5px; color:var(--text-dim); line-height:1.6; margin-bottom:28px;}
+  .hero-actions{display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap;}
+
+  /* ===== SECTION HEAD ===== */
+  .section-head{max-width:640px; margin-bottom:32px;}
+  .section-head h2{font-size:28px; margin-top:10px;}
+  .section-head.centered{margin-left:auto; margin-right:auto; text-align:center;}
+  .section-head.centered .eyebrow{justify-content:center;}
+
+  /* ===== PROBLEM ===== */
+  .problem-text{font-size:15px; color:var(--text-dim); line-height:1.75; max-width:820px;}
+  .problem-text em{color:var(--orange-pale); font-style:normal; font-weight:600;}
+
+  /* ===== WHAT WE DO — simple list ===== */
+  .offer-list{display:flex; flex-direction:column; gap:0; max-width:820px;}
+  .offer-row{display:flex; gap:14px; padding:20px 0; border-bottom:1px solid var(--line-soft);}
+  .offer-row:last-child{border-bottom:none;}
+  .offer-row .dash{color:var(--orange-bright); font-weight:700; flex-shrink:0;}
+  .offer-row .body b{font-size:14.5px; display:block; margin-bottom:4px;}
+  .offer-row .body span{font-size:14px; color:var(--text-dim); line-height:1.6;}
+  .offer-row .body a{font-size:13px; font-weight:600; color:var(--orange-bright); white-space:nowrap;}
+
+  /* ===== PROCESS — card row ===== */
+  .approach-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; align-items:stretch;}
+  .approach-card{
+    position:relative; border:1px solid var(--line); border-radius:18px; background:var(--bg-2);
+    padding:26px 22px; transition:transform .2s ease, border-color .2s ease;
+  }
+  .approach-card:hover{transform:translateY(-4px); border-color:var(--orange-bright);}
+  .approach-card .step-num{
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:34px; color:var(--orange-bright);
+    opacity:.9; margin-bottom:14px; line-height:1;
+  }
+  .approach-card h3{font-size:15.5px; margin-bottom:8px;}
+  .approach-card p{font-size:13px; color:var(--text-dim); line-height:1.55;}
+
+  .infographic-note{margin-top:26px; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--text-dim); font-style:italic;}
+  @media(max-width:900px){
+    .approach-grid{grid-template-columns:1fr; gap:14px;}
+    .approach-card::after{content:none;}
+  }
+
+  /* ===== CTA STANDALONE ===== */
+  .cta-full{
+    text-align:center; max-width:640px; margin:0 auto;
+    border:1px solid rgba(249,115,22,.35); border-radius:22px;
+    background:linear-gradient(120deg, rgba(249,115,22,.14), rgba(154,52,18,.16));
+    padding:46px 40px;
+  }
+  .cta-full h2{font-size:24px; margin-bottom:12px;}
+  .cta-full p{font-size:14.5px; color:var(--text-dim); line-height:1.6; margin-bottom:24px;}
+
+  /* ===== FAQ — native accordion ===== */
+  .faq-list{display:flex; flex-direction:column; gap:10px; max-width:820px;}
+  .faq-item{border:1px solid var(--line); border-radius:14px; background:var(--bg-2); overflow:hidden;}
+  .faq-item summary{list-style:none; cursor:pointer; padding:18px 22px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:'+'; font-family:'IBM Plex Mono',monospace; font-size:18px; color:var(--orange-bright); transition:transform .2s ease; flex-shrink:0;}
+  .faq-item[open] summary::after{transform:rotate(45deg);}
+  .faq-item .faq-a{padding:0 22px 20px; font-size:13.5px; color:var(--text-dim); line-height:1.65;}
+
+  /* ===== CLOSING ===== */
+  .closing{text-align:center; padding:30px 0 0;}
+  .closing p{font-size:15px; color:var(--text-dim);}
+  .closing a{color:var(--orange-bright); font-weight:600;}
+
+  footer{border-top:1px solid var(--line-soft); padding:36px 0; display:flex; justify-content:space-between; font-size:12.5px; color:var(--text-dim); flex-wrap:wrap; gap:10px;}
+
+  /* ===== FLOATING AUDIT BUTTON ===== */
+  .float-audit{
+    position:fixed; bottom:26px; right:26px;
+    display:inline-flex; align-items:center; gap:9px;
+    padding:15px 26px; border-radius:100px; z-index:80;
+    background:var(--orange); color:#FFFFFF;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px;
+    box-shadow:0 10px 30px rgba(249,115,22,.45), inset 0 1px 0 rgba(255,255,255,.25);
+    border:1px solid rgba(255,255,255,.15);
+    transition:transform .2s ease, box-shadow .2s ease;
+    animation:audit-pop .5s cubic-bezier(.34,1.56,.64,1) .3s both;
+  }
+  .float-audit:hover{transform:translateY(-3px); background:var(--orange-bright); box-shadow:0 16px 38px rgba(249,115,22,.55);}
+  .float-audit .dot-live{width:7px; height:7px; border-radius:50%; background:#FFFFFF; animation:pulse 1.6s infinite;}
+  @keyframes audit-pop{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+  @media(max-width:640px){
+    .float-audit{bottom:18px; right:18px; padding:13px 20px; font-size:13.5px;}
+  }
+
+  @media(max-width:900px){
+    .glass-card h1{font-size:30px;}
+    .glass-card{padding:36px 24px;}
+    section{padding:60px 0;}
+    .offer-row{flex-direction:column; gap:6px;}
+    .offer-row .body a{white-space:normal;}
+  }
+</style>
+</head>
+<body>
+
+<a href="#cta" class="float-audit">
+  <span class="dot-live"></span>
+  Get your free audit
+</a>
+
+<div id="navbar-placeholder"></div>
+
+<main id="top">
+
+  <!-- 1 · Hero -->
+  <div class="hero-bg">
+    <div class="grid-overlay"></div>
+    <div class="noise"></div>
+    <div class="glass-card">
+      <div class="eyebrow">Hospitality</div>
+      <h1>Hospitality marketing that drives direct bookings</h1>
+      <p class="lead">Every booking through an aggregator costs you commission and a customer relationship. We build the visibility, brand, and conversion that bring guests to you directly — and bring them back.</p>
+      <div class="hero-actions">
+        <a href="#how-we-help" class="btn btn-primary">See your booking opportunities →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 · The industry challenge -->
+  <section id="challenge" class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The Industry Challenge</div>
+      <h2>The aggregators own your customer, and take a cut of every stay.</h2>
+    </div>
+    <p class="problem-text">Booking platforms deliver volume, but at a price: commission on every reservation, no direct relationship with the guest, and a race to the bottom on rate. Guests who could have booked with you directly are intercepted at the moment of decision by a platform outspending you on every search term.<br><br>Hospitality is also seasonal, intensely visual, and reputation-driven. Demand swings, reviews decide reputations, and the brands that thrive are those guests actively seek out rather than stumble across. Winning back the direct relationship is the single highest-value marketing goal in the sector.</p>
+  </section>
+
+  <!-- 3 · How we help hospitality brands -->
+  <section id="how-we-help" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">How We Help Hospitality Brands</div>
+      <h2>Bringing guests — and margin — back to you directly.</h2>
+      <p>For hospitality, four capabilities do most of the work. We lead with them.</p>
+    </div>
+    <div class="offer-list">
+      <div class="offer-row">
+        <div class="dash">—</div>
+        <div class="body">
+          <b>SEO &amp; local search</b>
+          <span>Ranking for the destination, property, and experience searches that lead to direct bookings, with structured data and local visibility that aggregators can't monopolise. <a href="#">Explore SEO →</a></span>
+        </div>
+      </div>
+      <div class="offer-row">
+        <div class="dash">—</div>
+        <div class="body">
+          <b>Paid media</b>
+          <span>Campaigns that compete for high-intent booking searches and retarget guests who browsed the platforms but haven't booked. <a href="#">Explore paid media →</a></span>
+        </div>
+      </div>
+      <div class="offer-row">
+        <div class="dash">—</div>
+        <div class="body">
+          <b>Social media &amp; video</b>
+          <span>The visual storytelling that makes a property or restaurant desirable, and the community that keeps it front of mind between visits. <a href="#">Explore social media →</a></span>
+        </div>
+      </div>
+      <div class="offer-row">
+        <div class="dash">—</div>
+        <div class="body">
+          <b>Email marketing</b>
+          <span>Direct relationships with past guests: offers, seasonal campaigns, and win-back flows that generate commission-free repeat bookings. <a href="#">Explore email marketing →</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · Our approach -->
+  <section id="approach" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">Our Approach</div>
+      <h2>A proven process, tuned to seasonal, visual demand.</h2>
+    </div>
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="step-num mono">01</div>
+        <h3>Audit</h3>
+        <p>We assess your direct-booking share, your visibility against aggregators, and where guests are lost between interest and reservation.</p>
+      </div>
+      <div class="approach-card">
+        <div class="step-num mono">02</div>
+        <h3>Strategy</h3>
+        <p>We build a roadmap around your seasonal peaks, prioritising the channels that lift direct bookings fastest.</p>
+      </div>
+      <div class="approach-card">
+        <div class="step-num mono">03</div>
+        <h3>Execute</h3>
+        <p>Our specialists ship the content, campaigns, and creative that make you the deliberate choice.</p>
+      </div>
+      <div class="approach-card">
+        <div class="step-num mono">04</div>
+        <h3>Measure &amp; refine</h3>
+        <p>We report on direct bookings and revenue per guest, not just traffic, then optimise toward margin.</p>
+      </div>
+    </div>
+    <p class="infographic-note">(Process infographic sits here)</p>
+  </section>
+
+  <!-- 5 · CTA band -->
+  <section id="cta" class="wrap section-divider">
+    <div class="cta-full">
+      <h2>See how much commission you could be keeping.</h2>
+      <p>Get a free audit of your marketing. We'll show you where aggregators are capturing your guests, where direct bookings are being lost, and the fastest wins — no obligation.</p>
+      <a href="mailto:hello@dashmindsiq.com" class="btn btn-primary">Get your free audit →</a>
+    </div>
+  </section>
+
+  <!-- 6 · FAQ -->
+  <section id="faq" class="wrap section-divider">
+    <div class="section-head">
+      <div class="eyebrow">FAQ</div>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Can we realistically reduce our dependence on booking platforms?</summary>
+        <div class="faq-a">Yes, though rarely to zero. The goal is shifting the mix: capturing more guests directly through search, brand, and retention, while using platforms for incremental volume rather than as your primary channel.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How do you handle seasonality?</summary>
+        <div class="faq-a">By planning campaigns around your demand curve — building visibility and desire ahead of peaks, and using email and retargeting to fill troughs with past guests and last-minute demand.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How important are reviews and reputation?</summary>
+        <div class="faq-a">Decisive. Reviews influence both booking decisions and local search rankings. We factor reputation into strategy, though managing responses works best when it stays in-house and genuine.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Which channels drive direct bookings?</summary>
+        <div class="faq-a">Search captures intent, social and video create desire, and email converts past guests at almost no cost. The mix depends on your property and market — the audit determines it.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- 7 · Closing line -->
+  <section class="wrap">
+    <div class="closing">
+      <p>Ready when you are — <a href="mailto:hello@dashmindsiq.com">Get your free audit</a> and see what your direct channel could deliver.</p>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>© 2026 DashmindsIQ Digital Marketing. All rights reserved.</span>
+    <span>Privacy Policy · Terms &amp; Conditions</span>
+  </footer>
+
+</main>
+
+<script src="navbar.js" defer></script>
+
+</body>
+</html>
